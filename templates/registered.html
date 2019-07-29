@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="w3-cell-row" align="center">
+      <div class="w3-container w3-cell w3-mobile">
+          <p><i class="fa fa-address-card fa-5x"></i>
+          <br>REGISTERED</p>
+          Ethereum Address: {{ reg_ethaddress }} <br>
+          Serial Number: {{ reg_serial }} <br>
+          Bike Photo: <a href="http://127.0.0.1:8080/ipfs/{{ reg_ipfshash }}">{{ reg_ipfshash }}</a> <br>
+      </div>
+    </div>
+{% endblock content %}
+

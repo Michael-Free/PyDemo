@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% block content %}
+    <div class="w3-cell-row" align="center">
+      <div class="w3-container w3-cell w3-mobile">
+          <p><i class="fa fa-address-card fa-5x"></i>
+          <br>REGISTER</p>
+          <form method="POST" action="{{ url_for('registered') }}" enctype="multipart/form-data">
+            {{ registerform.csrf_token }}
+            <table align="center">
+              <tr>
+                <td>{{ registerform.ethaddress.label }} :</td>
+                <td>{{ registerform.ethaddress }}</td>
+              </tr>
+              <tr>
+                <td>{{ registerform.serialnumber.label }} :</td>
+                <td>{{ registerform.serialnumber }}</td>
+              </tr>
+              <tr>
+                <td>{{ registerform.photo.label }} :</td>
+                <td>{{ registerform.photo}}</td>
+              </tr>
+            </table>
+            <input type="submit" value="Register">
+          </form>
+      </div>
+    </div>
+{% endblock content %}
