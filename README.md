@@ -66,7 +66,9 @@ Notice that this lists the ethereum addresses started by ganache-cli. The call f
 
 #### Send ETH to New Account
 
-### Solidity Contracts 
-
 For more information and documentation on web3.py:
 https://web3py.readthedocs.io/en/stable/index.html
+
+### Solidity Contracts 
+
+
