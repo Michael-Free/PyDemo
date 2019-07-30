@@ -15,17 +15,13 @@ unzip solidity-ubuntu-trusty.zip && rm solidity-ubuntu-trusty.zip
 sudo mv lllc solc /usr/bin
 ```
 
-Install Ganache - the test ethereum blockchain
+Install Ganache - the test ethereum blockchain and pip3 requirements
 
-``
+```
 sudo npm install -g ganache-cli
-```
-
-Install Python3 requirements:
-
-```
 sudo pip3 install -r requirements.txt
 ```
+
 
 ##
 
