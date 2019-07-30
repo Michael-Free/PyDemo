@@ -1,5 +1,5 @@
 from solc import compile_source
-from web3 import Web3, HTTPProvider, IPCProvider, WebsocketProvider
+from web3 import Web3, HTTPProvider
 from web3.contract import ConciseContract
 
 web3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
