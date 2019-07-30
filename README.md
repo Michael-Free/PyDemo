@@ -58,7 +58,7 @@ Get a list of current Ethereum Addresses:
 web3.personal.listAccounts
 ```
 ![Ganache-CLI Ethereum Addresses in Python3 Terminal](/media/ganache-cli-01.png)
-Notice that this lists the ethereum addresses started by ganache-cli
+Notice that this lists the ethereum addresses started by ganache-cli. The call from python to Web3.py can be observed from the ganache-cli terminal as well.
 
 For more information and documentation on web3.py:
 https://web3py.readthedocs.io/en/stable/index.html
