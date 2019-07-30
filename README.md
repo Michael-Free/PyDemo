@@ -23,10 +23,11 @@ sudo pip3 install -r requirements.txt
 
 ## Getting Started
 
-Start up Ganache, a test ethereum blockchain.
+Start up Ganache.
 ```
 ganache-cli
 ```
+Ganache is an ethereum blockchain emulator. it allows developers to make calls to an ethereum-like blockchain, without having to run a node.
 
 Now that Ganache is running, let's get familiar with Web3.py, which your application will use to interact with ethereum.
 
