@@ -1,4 +1,3 @@
-import json
 from solc import compile_source
 from web3 import Web3, HTTPProvider, IPCProvider, WebsocketProvider
 from web3.auto import w3
