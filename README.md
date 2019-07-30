@@ -31,7 +31,7 @@ ganache-cli
 
 Now that Ganache is running, let's get familiar with Web3.py, which your application will use to interact with ethereum.
 
-Startup a python3 prompt: ```python3``
+Startup a python3 prompt: ```python3```
 
 ```
 
