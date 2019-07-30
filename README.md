@@ -25,7 +25,7 @@ sudo pip3 install -r requirements.txt
 ## Getting Started
 
 
-### Start Ganache-CLI
+### Starting Ganache-CLI
 Ganache is an ethereum blockchain emulator. it allows developers to make calls to an ethereum-like blockchain, without having to run a node.
 
 ```
@@ -40,18 +40,7 @@ Other information is displayed like HD Wallet, which can be used to import these
 
 For the purposes of this demonstration, we wont be going too deep into Gas Limits and Gas Prices.  If you would like to learn more about it, this is probably the most informative explanation: https://blockgeeks.com/guides/ethereum-gas/
 
-
-###
-In another terminal, navigate to the PyDemo repository
-
-Now that Ganache is running, let's get familiar with Web3.py, which your application will use to interact with ethereum.
-
-
-
-
-
-
-
+### Get Familiar with Web3.py
 
 
 Startup a python3 prompt an
