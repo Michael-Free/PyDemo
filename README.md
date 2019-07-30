@@ -41,7 +41,7 @@ Other information is displayed like HD Wallet, which can be used to import these
 For the purposes of this demonstration, we wont be going too deep into Gas Limits and Gas Prices.  If you would like to learn more about it, this is probably the most informative explanation: https://blockgeeks.com/guides/ethereum-gas/
 
 ### Get Familiar with Web3.py
-Web3 is an API to the Ethereum Blockchain.  The main implementation is Web3.js. 
+Web3 is an API to the Ethereum Blockchain to build applications with.  There are many implementations. The most widely used implementation is Web3.js, which Web3.py is derrived from.  
 
 ```
 
