@@ -45,7 +45,7 @@ Web3 is an API to the Ethereum Blockchain to build applications with.  There are
 
 #### Import the Libraries
 ```
-from web3 import Web3, HTTPProvider, IPCProvider, WebsocketProvider
+from web3 import Web3, HTTPProvider
 ```
 
 #### Set Ganache-CLI as the Ethereum Blockchain Provider
