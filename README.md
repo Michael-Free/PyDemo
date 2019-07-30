@@ -11,8 +11,7 @@ This demo uses Solc 0.4.25.  You can install from below:
 
 ```
 wget https://github.com/ethereum/solidity/releases/download/v0.4.25/solidity-ubuntu-trusty.zip
-unzip solidity-ubuntu-trusty.zip && rm solidity-ubuntu-trusty.zip
-sudo mv lllc solc /usr/bin
+solc unzip solidity-ubuntu-trusty.zip -d /usr/bin/
 ```
 
 Install Ganache - the test ethereum blockchain and pip3 requirements
