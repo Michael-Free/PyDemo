@@ -53,7 +53,7 @@ from web3 import Web3, HTTPProvider
 web3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
 ```
 #### Interacting with Ganache-GLI through Python
-Get a list of your current Ethereum Addresses:
+Get a list of current Ethereum Addresses:
 ```
 web3.personal.listAccounts
 ```
