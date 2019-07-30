@@ -41,11 +41,16 @@ Other information is displayed like HD Wallet, which can be used to import these
 For the purposes of this demonstration, we wont be going too deep into Gas Limits and Gas Prices.  If you would like to learn more about it, this is probably the most informative explanation: https://blockgeeks.com/guides/ethereum-gas/
 
 ### Get Familiar with Web3.py
-Web3 is an API to the Ethereum Blockchain to build applications with.  There are many implementations. The most widely used implementation is Web3.js, which Web3.py is derrived from.  
+Web3 is an API to the Ethereum Blockchain to build applications with.  There are many implementations. The most widely used implementation is Web3.js, which Web3.py is derrived from.  So let's get started with a python terminal: ```python3```
 
+#### Import the Libraries
+```
+from web3 import Web3, HTTPProvider, IPCProvider, WebsocketProvider
 ```
 
-
+#### Set Ganache-CLI as the Ethereum Blockchain Provider
+```
+web3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
 ```
 
 For more information and documentation on web3.py:
