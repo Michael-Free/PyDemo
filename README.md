@@ -62,3 +62,6 @@ Notice that this lists the ethereum addresses started by ganache-cli. The call f
 ![Python Call can be seen in Ganache-cli](/media/ganache-cli-02.png)
 For more information and documentation on web3.py:
 https://web3py.readthedocs.io/en/stable/index.html
+
+#### Get Balances and Create New Account
+
