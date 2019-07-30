@@ -4,7 +4,7 @@
 System requirements on Ubuntu Server 18.04 LTS
 
 ```
-sudo apt install libz3-dev python3-dev python3-pip npm
+sudo apt install libz3-dev python3-dev python3-pip npm unzip
 ```
 
 This demo uses Solc 0.4.25.  You can install from below:
