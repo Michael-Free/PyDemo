@@ -52,7 +52,7 @@ from web3 import Web3, HTTPProvider
 ```
 web3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
 ```
-##### Interacting with Ganache-GLI through Python
+#### Interacting with Ganache-GLI through Python
 Get a list of current Ethereum Addresses:
 ```
 web3.personal.listAccounts
@@ -61,13 +61,13 @@ web3.personal.listAccounts
 Notice that this lists the ethereum addresses started by ganache-cli. The call from python to Web3.py can be observed from the ganache-cli terminal as well.
 ![Python Call can be seen in Ganache-cli](/media/ganache-cli-02.png)
 
-##### Get Balances and Create New Account
+#### Get Balances and Create New Account
 
 #####
 
-##### Send ETH to New Account
+#### Send ETH to New Account
 
-##### More Web3.py Info
+#### More Web3.py Info
 For more information and documentation on web3.py:
 https://web3py.readthedocs.io/en/stable/index.html
 
