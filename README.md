@@ -71,20 +71,18 @@ Notice that this lists the ethereum addresses started by ganache-cli. The call f
 For more information and documentation on web3.py:
 https://web3py.readthedocs.io/en/stable/index.html
 
-### Solidity Contracts 
+## Budiling The Smart Contracts
 
 
-### Using Flask with Smart Contract Applications
+### Using Flask to Build your Dapp
 
 #### Setting up the Flask environment
 
+Before starting, Flask requires at least 3 environment variables provided:  Location of your app, type of environment, and debug level.
 ```
 export FLASK_APP="dapp.py"
 export FLASK_ENV=development
 export FLASK_DEBUG=0
-
 ```
 
-#### Templates
-
-### 
+In order to run the server, type ```flask run```
