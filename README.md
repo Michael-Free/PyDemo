@@ -79,6 +79,7 @@ https://web3py.readthedocs.io/en/stable/index.html
 
 ### Deploying Contracts
 
+### Building Contracts
 
 ## Using Flask to Build your Dapp
 
