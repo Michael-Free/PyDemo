@@ -61,9 +61,9 @@ web3.personal.listAccounts
 Notice that this lists the ethereum addresses started by ganache-cli. The call from python to Web3.py can be observed from the ganache-cli terminal as well.
 ![Python Call can be seen in Ganache-cli](/media/ganache-cli-02.png)
 
-#### Get Balances and Create New Account
+#### Get Balances 
 
-#####
+#### Create New Account
 
 #### Send ETH to New Account
 
@@ -74,3 +74,17 @@ https://web3py.readthedocs.io/en/stable/index.html
 ### Solidity Contracts 
 
 
+### Using Flask with your Smart Contract
+
+#### Setting up the Flask environment
+
+```
+export FLASK_APP="dapp.py"
+export FLASK_ENV=development
+export FLASK_DEBUG=0
+
+```
+
+#### Templates
+
+### 
