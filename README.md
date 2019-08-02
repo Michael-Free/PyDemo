@@ -1,4 +1,4 @@
-# PyDemo
+# Building dApps with Python, Flask, and Solidity
 
 ## Install Requirements
 System requirements on Ubuntu Server 18.04 LTS
