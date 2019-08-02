@@ -85,4 +85,4 @@ export FLASK_ENV=development
 export FLASK_DEBUG=0
 ```
 
-In order to run the server, type ```flask run```
+In order to run the webserver, type ```flask run --host=0.0.0.0```
