@@ -74,7 +74,7 @@ https://web3py.readthedocs.io/en/stable/index.html
 ### Solidity Contracts 
 
 
-### Using Flask with your Smart Contract
+### Using Flask with Smart Contract Applications
 
 #### Setting up the Flask environment
 
