@@ -73,6 +73,12 @@ https://web3py.readthedocs.io/en/stable/index.html
 
 ## Building Solidity Smart Contract(s)
 
+### Solidity and Solc
+
+### Importing Contracts
+
+### Deploying Contracts
+
 
 ## Using Flask to Build your Dapp
 
@@ -87,10 +93,4 @@ export FLASK_DEBUG=0
 
 In order to run the webserver, type ```flask run --host=0.0.0.0```
 
-#### Template Directory
-
-#### Contract Directory
-
-#### Upload Directory
-
-### 
+### Flask Routing & Deployed Contracts
