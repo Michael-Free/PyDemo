@@ -71,7 +71,7 @@ Notice that this lists the ethereum addresses started by ganache-cli. The call f
 For more information and documentation on web3.py:
 https://web3py.readthedocs.io/en/stable/index.html
 
-## Buidling The Smart Contract(s)
+## Building the Smart Contract(s)
 
 
 ## Using Flask to Build your Dapp
