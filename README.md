@@ -73,6 +73,8 @@ https://web3py.readthedocs.io/en/stable/index.html
 
 ## Building Solidity Smart Contract(s)
 
+Solidity is an language for writing smart contracts.  Ethereum is by far the most popular platform for Solidity, but other platforms use Solidity, such as:  Hyperledger, Ethereum Classic, Monax, CounterParty (on Bitcoin), and even SWIFT has a proof-of-concept built using it.
+
 ### Solidity and Solc
 
 ### Importing Contracts
