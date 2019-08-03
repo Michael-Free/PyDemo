@@ -79,7 +79,9 @@ https://web3py.readthedocs.io/en/stable/index.html
 
 ## Building Solidity Smart Contract(s)
 
-Smart Contracts (simply put) are small computer programs.  These programs exist on a common blockchain. When triggered, they are self-executing. The terms of the contract between the contract owner and the recipient are expressed as code. Since Smart Contracts exist on a decentralized blockchain, they permit trusted transactions/agreements to be carried out without any need for a central authority, legal system, or enforcement mechanism.  This makes the transactions of a Smart Contract transparent, trustless, traceable and irreversible. 
+Smart Contracts (simply put) are small computer programs.  These programs exist on a common blockchain. When triggered, they are self-executing. The terms of the contract between the contract owner and the recipient are expressed as code. Since Smart Contracts exist on a decentralized blockchain, they permit trusted transactions/agreements to be carried out without any need for a central authority, legal system, or enforcement mechanism.  However, due to the structure and security of this platform, there is little need for intermediaries.
+
+This makes the transactions of a Smart Contract transparent, trustless, traceable, irreversable, and globally redundant.
 
 ### Solidity and Solc
 
