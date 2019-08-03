@@ -1,6 +1,7 @@
 # Building dApps with Python, Flask, and Solidity
 
 ## Install Requirements
+
 System requirements on Ubuntu Server 18.04 LTS
 
 ```
@@ -26,6 +27,7 @@ sudo pip3 install -r requirements.txt
 
 
 ### Starting Ganache-CLI
+
 Ganache is an ethereum blockchain emulator. it allows developers to make calls to an ethereum-like blockchain, without having to run a node.
 
 ```
@@ -41,18 +43,22 @@ Other information is displayed like HD Wallet, which can be used to import these
 For the purposes of this demonstration, we wont be going too deep into Gas Limits and Gas Prices.  If you would like to learn more about it, this is probably the most informative explanation: https://blockgeeks.com/guides/ethereum-gas/
 
 ### Get Familiar with Web3.py
+
 Web3 is an API to the Ethereum Blockchain to build applications with.  There are many implementations. The most widely used implementation is Web3.js, which Web3.py is derrived from.  So let's get started with a python terminal: ```python3```
 
 #### Import the Libraries
+
 ```
 from web3 import Web3, HTTPProvider
 ```
 
 #### Set Ganache-CLI as the Ethereum Blockchain Provider
+
 ```
 web3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
 ```
 #### Interacting with Ganache-GLI through Python with Web3.py
+
 Get a list of current Ethereum Addresses:
 ```
 web3.personal.listAccounts
@@ -78,6 +84,7 @@ Smart Contracts (simply put) are small computer programs.  These programs exist 
 ### Solidity and Solc
 
 Solidity is an language for writing smart contracts.  Ethereum is by far the most popular platform for Solidity, but other platforms use Solidity, such as:  Hyperledger, Ethereum Classic, Monax, CounterParty (on Bitcoin), and even SWIFT has a proof-of-concept built using it.
+
 ### Building Contracts
 
 #### Learning More About Solidity
