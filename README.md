@@ -87,7 +87,7 @@ Solidity is an language for writing smart contracts.  Ethereum is by far the mos
 
 ### Learning More About Solidity
 * Solidity Documentation: https://solidity.readthedocs.io/en/v0.4.24/
-* OpenZepplin: https://github.com/OpenZeppelin/openzeppelin-contracts
+* OpenZeppelin: https://github.com/OpenZeppelin/openzeppelin-contracts
 * BlockGeeks: https://github.com/blockgeeks/workshop/tree/master/src/contracts
 
 ## Using Flask to Build a dApp
