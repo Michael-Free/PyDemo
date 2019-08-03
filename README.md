@@ -1,4 +1,4 @@
-# Building dApps with Python, Flask, and Solidity
+# Building dApps with Python, Flask, Solidity, & Web3.py
 
 ## Install Requirements
 
