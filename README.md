@@ -85,7 +85,7 @@ Solidity is an language for writing smart contracts.  Ethereum is by far the mos
 
 ### Building Contracts
 
-## Using Flask to Build your Dapp
+## Using Flask to Build a dApp
 
 ### Setting up the Flask environment
 
