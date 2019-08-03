@@ -78,17 +78,20 @@ Smart Contracts (simply put) are small computer programs.  These programs exist 
 ### Solidity and Solc
 
 Solidity is an language for writing smart contracts.  Ethereum is by far the most popular platform for Solidity, but other platforms use Solidity, such as:  Hyperledger, Ethereum Classic, Monax, CounterParty (on Bitcoin), and even SWIFT has a proof-of-concept built using it.
-
 ### Building Contracts
+
+#### Learning More About Solidity
+
+There are plenty of online resources for learning more about Solidity.  For exploring more, take a look at some of the provided documentation and sample contract-implementations:
+* Solidity Documentation: https://solidity.readthedocs.io/en/v0.4.24/
+* OpenZeppelin: https://github.com/OpenZeppelin/openzeppelin-contracts
+* BlockGeeks: https://github.com/blockgeeks/workshop/tree/master/src/contracts
 
 ### Importing Contracts
 
 ### Deploying Contracts
 
-### Learning More About Solidity
-* Solidity Documentation: https://solidity.readthedocs.io/en/v0.4.24/
-* OpenZeppelin: https://github.com/OpenZeppelin/openzeppelin-contracts
-* BlockGeeks: https://github.com/blockgeeks/workshop/tree/master/src/contracts
+
 
 ## Using Flask to Build a dApp
 
