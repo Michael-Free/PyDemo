@@ -52,7 +52,7 @@ from web3 import Web3, HTTPProvider
 ```
 web3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
 ```
-#### Interacting with Ganache-GLI through Python
+#### Interacting with Ganache-GLI through Python with Web3.py
 Get a list of current Ethereum Addresses:
 ```
 web3.personal.listAccounts
@@ -73,9 +73,11 @@ https://web3py.readthedocs.io/en/stable/index.html
 
 ## Building Solidity Smart Contract(s)
 
-Solidity is an language for writing smart contracts.  Ethereum is by far the most popular platform for Solidity, but other platforms use Solidity, such as:  Hyperledger, Ethereum Classic, Monax, CounterParty (on Bitcoin), and even SWIFT has a proof-of-concept built using it.
+Smart Contracts (simply put) are small computer programs.  These programs exist on a common blockchain. When triggered, they are self-executing. The terms of the contract between the contract owner and the recipient are expressed as code. Since Smart Contracts exist on a decentralized blockchain, they permit trusted transactions/agreements to be carried out without any need for a central authority, legal system, or enforcement mechanism.  This makes the transactions of a Smart Contract transparent, trustless, traceable and irreversible. 
 
 ### Solidity and Solc
+
+Solidity is an language for writing smart contracts.  Ethereum is by far the most popular platform for Solidity, but other platforms use Solidity, such as:  Hyperledger, Ethereum Classic, Monax, CounterParty (on Bitcoin), and even SWIFT has a proof-of-concept built using it.
 
 ### Importing Contracts
 
