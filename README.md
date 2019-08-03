@@ -96,7 +96,7 @@ There are plenty of online resources for learning more about Solidity.  For expl
 * OpenZeppelin: https://github.com/OpenZeppelin/openzeppelin-contracts
 * BlockGeeks: https://github.com/blockgeeks/workshop/tree/master/src/contracts
 
-### Importing Contracts
+### Inherting Other Contracts
 
 ### Deploying Contracts
 
