@@ -114,5 +114,5 @@ export FLASK_DEBUG=0
 ```
 
 In order to run the webserver, type ```flask run --host=0.0.0.0```
-
+![Starting Flask](/media/flask-00.png)
 ### Flask Routing & Deployed Contracts
