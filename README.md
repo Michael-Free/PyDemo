@@ -74,6 +74,7 @@ Notice that this lists the ethereum addresses started by ganache-cli. The call f
 #### Send ETH to New Account
 
 #### More Web3.py Info
+
 For more information and documentation on web3.py:
 https://web3py.readthedocs.io/en/stable/index.html
 
@@ -93,16 +94,18 @@ Ethereum is by far the most popular platform for Solidity, but other platforms u
 
 #### LLLC
 
-LLLC, the Lovely Little Language Compiler.  
+LLLC, the Lovely Little Language Compiler. This will translate Solidity Contracts into a Ethereum-Blockchain readable format.  
 
 #### Solc
 
-Solc is a binary and commandline interface for the Solidity Compiler.  It enables an interface with LLLC to compile Solidity Contracts.
+Solc is a binary and commandline interface for the Solidity Compiler (LLLC). 
 
 #### Py-Solc
 
+Python wrapper around the solc Solidity compiler.
 
-### Building Contracts
+### Building A Contract
+
 #### Sample Contract
 ```
 pragma solidity ^0.4.21;
@@ -168,4 +171,5 @@ export FLASK_DEBUG=0
 
 In order to run the webserver, type ```flask run --host=0.0.0.0```
 ![Starting Flask](/media/flask-00.png)
+
 ### Flask Routing & Deployed Contracts
