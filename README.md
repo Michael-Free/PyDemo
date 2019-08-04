@@ -78,7 +78,7 @@ Notice that this lists the ethereum addresses started by ganache-cli. The call f
 For more information and documentation on web3.py:
 https://web3py.readthedocs.io/en/stable/index.html
 
-## Building Solidity Smart Contract(s)
+## Explaining Solidity and Smart Contracts
 
 Smart Contracts (simply put) are small computer programs.  These programs exist on a common blockchain. When triggered, they are self-executing. The terms of the contract between the contract owner and the recipient are expressed as code. Since Smart Contracts exist on a decentralized blockchain, they permit trusted transactions/agreements to be carried out without any need for a central authority, legal system, or enforcement mechanism.  However, due to the structure and security of this platform, there is little need for intermediaries.
 
@@ -90,19 +90,21 @@ This makes the transactions of a Smart Contract transparent, trustless, traceabl
 
 Solidity is statically typed, contract-oriented, and a high-level language for implementing smart contracts on the Ethereum platform.
 
-Ethereum is by far the most popular platform for Solidity, but other platforms use Solidity, such as:  Hyperledger, Ethereum Classic, Monax, CounterParty (on Bitcoin), and even SWIFT has a proof-of-concept built using it.
+Ethereum is by far the most popular platform for Solidity, but other platforms use Solidity, such as:  Hyperledger, Ethereum Classic, Monax, CounterParty (on Bitcoin), and even SWIFT has a proof-of-concept built using Solidity.
 
 #### LLLC
 
-LLLC, the Lovely Little Language Compiler. This will translate Solidity Contracts into a Ethereum-Blockchain readable format.  
+LLLC, the Lovely Little Language Compiler. This binary will translate Solidity Contracts into a Ethereum-Blockchain executable format.  
 
 #### Solc
 
 Solc is a binary and commandline interface for the Solidity Compiler (LLLC). 
 
-#### Py-Solc
+#### Py-Solc Library
 
-Python wrapper around the solc Solidity compiler.
+Python wrapper around the solc Solidity compiler. Here is an integral part of building a python-based dApp. 
+
+#### 
 
 ### Building A Contract
 
