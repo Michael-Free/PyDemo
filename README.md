@@ -89,9 +89,16 @@ This makes the transactions of a Smart Contract transparent, trustless, traceabl
 
 Solidity is an language for writing smart contracts.  Ethereum is by far the most popular platform for Solidity, but other platforms use Solidity, such as:  Hyperledger, Ethereum Classic, Monax, CounterParty (on Bitcoin), and even SWIFT has a proof-of-concept built using it.
 
-#### solc
+#### LLLC
 
-#### lllc
+LLLC, the Lovely Little Language Compiler.  
+
+#### Solc
+
+Solc is a binary and commandline interface for the Solidity Compiler.  It enables an interface with LLLC to compile Solidity Contracts.
+
+#### Py-Solc
+
 
 ### Building Contracts
 #### Sample Contract
