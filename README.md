@@ -94,6 +94,7 @@ Solidity is an language for writing smart contracts.  Ethereum is by far the mos
 #### lllc
 
 ### Building Contracts
+#### Sample Contract
 ```
 pragma solidity ^0.4.21;
 contract StorageContract {
@@ -130,7 +131,7 @@ contract StorageContract {
 }
 
 ```
-#### Sample Contract
+
 
 #### Learning More About Solidity
 
