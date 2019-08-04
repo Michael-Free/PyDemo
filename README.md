@@ -87,7 +87,9 @@ This makes the transactions of a Smart Contract transparent, trustless, traceabl
 
 #### Solidity
 
-Solidity is an language for writing smart contracts.  Ethereum is by far the most popular platform for Solidity, but other platforms use Solidity, such as:  Hyperledger, Ethereum Classic, Monax, CounterParty (on Bitcoin), and even SWIFT has a proof-of-concept built using it.
+Solidity is statically typed, contract-oriented, and a high-level language for implementing smart contracts on the Ethereum platform.
+
+Ethereum is by far the most popular platform for Solidity, but other platforms use Solidity, such as:  Hyperledger, Ethereum Classic, Monax, CounterParty (on Bitcoin), and even SWIFT has a proof-of-concept built using it.
 
 #### LLLC
 
