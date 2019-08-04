@@ -154,9 +154,7 @@ There are plenty of online resources for learning more about Solidity.  For expl
 
 #### Inherting Other Contracts
 
-#### Deploying Contracts
-
-
+### Deploying Contracts
 
 ## Using Flask to Build a dApp
 
