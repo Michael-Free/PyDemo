@@ -108,7 +108,7 @@ Python wrapper around the solc Solidity compiler.
 
 #### Sample Contract
 ```
-pragma solidity ^0.4.21;
+pragma solidity ^0.4.24;
 contract StorageContract {
     /* Define variable owner of the type address */
     string public serialnumber;
@@ -144,7 +144,6 @@ contract StorageContract {
 
 ```
 
-
 #### Learning More About Solidity
 
 There are plenty of online resources for learning more about Solidity.  For exploring more, take a look at some of the provided documentation and sample contract-implementations:
@@ -161,6 +160,7 @@ There are plenty of online resources for learning more about Solidity.  For expl
 ### Setting up the Flask environment
 
 Before starting, Flask requires at least 3 environment variables provided:  Location of your app, type of environment, and debug level.
+
 ```
 export FLASK_APP="dapp.py"
 export FLASK_ENV=development
