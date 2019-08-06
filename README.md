@@ -25,7 +25,6 @@ sudo pip3 install -r requirements.txt
 
 ## Getting Started
 
-
 ### Starting Ganache-CLI
 
 Ganache is an ethereum blockchain emulator. it allows developers to make calls to an ethereum-like blockchain, without having to run a node.
@@ -57,6 +56,7 @@ from web3 import Web3, HTTPProvider
 ```
 web3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
 ```
+
 #### Interacting with Ganache-GLI through Python with Web3.py
 
 Get a list of current Ethereum Addresses:
@@ -170,6 +170,7 @@ export FLASK_DEBUG=0
 ```
 
 In order to run the webserver, type ```flask run --host=0.0.0.0```
+
 ![Starting Flask](/media/flask-00.png)
 
 ### Flask Routing & Deployed Contracts
