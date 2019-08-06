@@ -76,6 +76,7 @@ Notice that this lists the ethereum addresses started by ganache-cli. The call f
 >>> web3.eth.gasPrice
 20000000000
 ```
+![Ganache-CLI Get Ethereum Gas Price in Python3 Terminal](/media/ganache-cli-03.png)
 
 #### Get Balances 
 
