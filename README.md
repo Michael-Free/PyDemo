@@ -61,11 +61,21 @@ web3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
 
 Get a list of current Ethereum Addresses:
 ```
-web3.personal.listAccounts
+>>> web3.personal.listAccounts
 ```
+
 ![Ganache-CLI Ethereum Addresses in Python3 Terminal](/media/ganache-cli-01.png)
+
 Notice that this lists the ethereum addresses started by ganache-cli. The call from python to Web3.py can be observed from the ganache-cli terminal as well.
+
 ![Python Call can be seen in Ganache-cli](/media/ganache-cli-02.png)
+
+#### Get Gas Price
+
+```
+>>> web3.eth.gasPrice
+20000000000
+```
 
 #### Get Balances 
 
