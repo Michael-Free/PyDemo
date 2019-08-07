@@ -48,13 +48,13 @@ Web3 is an API to the Ethereum Blockchain to build applications with.  There are
 #### Import the Libraries
 
 ```
-from web3 import Web3, HTTPProvider
+>>> from web3 import Web3, HTTPProvider
 ```
 
 #### Set Ganache-CLI as the Ethereum Blockchain Provider
 
 ```
-web3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
+>>> web3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
 ```
 
 #### Interacting with Ganache-GLI through Python with Web3.py
