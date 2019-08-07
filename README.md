@@ -20,7 +20,7 @@ Install Ganache - the test ethereum blockchain and pip3 requirements
 
 ```
 sudo npm install -g ganache-cli
-sudo pip3 install -r requirements.txtclassified while you were sleeping
+sudo pip3 install -r requirements.txt
 ```
 
 ## Getting Started
