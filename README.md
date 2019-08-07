@@ -60,6 +60,7 @@ Web3 is an API to the Ethereum Blockchain to build applications with.  There are
 #### Interacting with Ganache-GLI through Python with Web3.py
 
 Get a list of current Ethereum Addresses:
+
 ```
 >>> web3.personal.listAccounts
 ```
@@ -79,6 +80,12 @@ Notice that this lists the ethereum addresses started by ganache-cli. The call f
 ![Ganache-CLI Get Ethereum Gas Price in Python3 Terminal](/media/ganache-cli-03.png)
 
 #### Get Balances 
+
+```
+>>> web3.eth.getBalance('0xC599Ca9376b82651b8e9A2ee741B1b404dc41FF8')
+100000000000000000000
+```
+![Get Ethereum Address Balances from address](/media/ganache-cli-04.png)
 
 #### Create New Account
 
