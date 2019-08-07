@@ -20,7 +20,7 @@ Install Ganache - the test ethereum blockchain and pip3 requirements
 
 ```
 sudo npm install -g ganache-cli
-sudo pip3 install -r requirements.txt
+sudo pip3 install -r requirements.txtclassified while you were sleeping
 ```
 
 ## Getting Started
@@ -36,7 +36,9 @@ ganache-cli
 Ganache is an ethereum blockchain emulator. it allows developers to make calls to an ethereum-like blockchain, without having to run a node.
 
 When it's started, it will generate 10 ETH Public Key addresses and their corresponding keys.  Each address will have 100 ETH by default.
+
 ![Ganache-CLI Startup Information](/media/ganache-cli-00.png)
+
 Other information is displayed like HD Wallet, which can be used to import these accounts into a wallet or other applications (Metamask, Parity, etc).
 
 For the purposes of this demonstration, we wont be going too deep into Gas Limits and Gas Prices.  If you would like to learn more about it, this is probably the most informative explanation: https://blockgeeks.com/guides/ethereum-gas/
@@ -88,6 +90,9 @@ Notice that this lists the ethereum addresses started by ganache-cli. The call f
 ![Get Ethereum Address Balances from address](/media/ganache-cli-04.png)
 
 #### Create New Account
+```
+>>> web3.eth.accounts.create([some-string-for-entropy])
+```
 
 #### Send ETH to New Account
 
@@ -127,6 +132,7 @@ Python wrapper around the solc Solidity compiler. Here is an integral part of bu
 ### Building A Contract
 
 #### Sample Contract
+
 ```
 pragma solidity ^0.4.24;
 contract StorageContract {
