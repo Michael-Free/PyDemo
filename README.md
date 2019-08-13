@@ -105,6 +105,11 @@ The address should be zero, unlike the other accounts since this is newly create
 
 #### Send ETH to New Account
 
+```
+>>> web3.eth.sendTransaction({'to': '0xE972Dc8a9a0701A98dB8466FC555Bc10150Cd977', 'from': web3.eth.coinbase, 'value': 1000000})
+HexBytes('0xdd1ca7444da4498e168954669e3f1381f0a3843c40adaaa8e55d32e07c7c5985')
+```
+The response is a 
 #### More Web3.py Info
 
 For more information and documentation on web3.py:
