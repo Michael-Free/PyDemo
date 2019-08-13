@@ -92,7 +92,16 @@ Notice that this lists the ethereum addresses started by ganache-cli. The call f
 #### Create New Account
 ```
 >>> web3.personal.newAccount('YOURPASSWORD')
+'0xE972Dc8a9a0701A98dB8466FC555Bc10150Cd977'
 ```
+
+A new address is now created.  Check the balance on this account:
+
+```
+>>> web3.eth.getBalance('0xE972Dc8a9a0701A98dB8466FC555Bc10150Cd977')
+0
+```
+The address should be zero, unlike the other accounts since this is newly created.
 
 #### Send ETH to New Account
 
