@@ -91,7 +91,7 @@ Notice that this lists the ethereum addresses started by ganache-cli. The call f
 
 #### Create New Account
 ```
->>> web3.eth.accounts.create([some-string-for-entropy])
+>>> web3.personal.newAccount('YOURPASSWORD')
 ```
 
 #### Send ETH to New Account
