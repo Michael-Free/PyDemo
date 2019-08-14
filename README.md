@@ -209,6 +209,52 @@ from web3.contract import ConciseContract
 
 #### Deploying with Inline Solidity Code
 
+Create a variable for the contract source code.  Create a set of triple quotes, and paste in the contract.
+
+```
+contract_source_code = '''
+pragma solidity ^0.4.24;
+contract StorageContract {
+    /* Define variable owner of the type address */
+    string public serialnumber;
+    address public assetowner;
+    string public location;
+
+    event Registration(
+       string serialnumber,
+       address assetowner
+    );
+
+    function setRegistration (string newSerialnumber, address newAssetowner) public {
+        serialnumber = newSerialnumber;
+        assetowner = newAssetowner;
+        emit Registration(serialnumber, assetowner);
+
+    }
+
+    event Reporting(
+       string serialnumber,
+       string location,
+       address assetowner
+    );
+
+    function setReporting (string newSerialnumber, string newLocation, address newAssetowner) public {
+        serialnumber = newSerialnumber;
+        location = newLocation;
+        assetowner = newAssetowner;
+        emit Reporting(serialnumber, location, assetowner);
+
+    }
+}
+'''
+```
+
+Compile the contract:
+
+```
+compiled_sol = compile_source(contract_source_code) # Compiled source code
+```
+
 #### Deploying with a .sol Solidity Contract
 
 Create a function to open and read the solidity contract file and compile source:
@@ -232,10 +278,36 @@ def deploy_contract(we3, contract_interface):
     address = we3.eth.getTransactionReceipt(tx_hash)['contractAddress']
     return address
 ```
+
 Provide the path to the contract and path:
+
 ```
-contract_source_path = '/contract/storage.sol'
-compiled_sol = compile_source_file('/contract/storage.sol')
+contract_source_path = '/contract/'
+compiled_sol = compile_source_file('storage.sol')
+```
+
+#### Building the Contract Interface
+
+```
+smartcontract_interface = compiled_sol['<stdin>:StorageContract']
+StorageContract = web3.eth.contract(abi=smartcontract_interface['abi'], bytecode=smartcontract_interface['bin'])
+```
+
+Setup the transaction to deploy the contract:
+
+```
+web3.eth.defaultAccount = web3.eth.accounts[0] # From which account?  The first one.
+tx_hash = StorageContract.constructor().transact() # Transaction
+tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash) # Get the Transaction receipt
+```
+
+Create the Contract Instance:
+
+```
+assetregister = web3.eth.contract(
+    address=tx_receipt.contractAddress,
+    abi=smartcontract_interface['abi'],
+)
 ```
 
 ## Using Flask to Build a dApp
