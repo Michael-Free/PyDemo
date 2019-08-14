@@ -200,6 +200,23 @@ There are plenty of online resources for learning more about Solidity.  For expl
 
 ### Deploying Contracts
 
+Before a contract can be deployed, there will need to be some extra libraries imported into our demo.
+
+```
+from solc import compile_source
+from web3.contract import ConciseContract
+
+```
+
+#### Deploying with Inline Solidity Code
+
+#### Deploying with a .sol Solidity Contract
+
+```
+contract_source_path = '/contract/storage.sol'
+compiled_sol = compile_source_file('/contract/storage.sol')
+```
+
 ## Using Flask to Build a dApp
 
 ### Setting up the Flask environment
