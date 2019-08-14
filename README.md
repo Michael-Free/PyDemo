@@ -211,6 +211,28 @@ from web3.contract import ConciseContract
 
 #### Deploying with a .sol Solidity Contract
 
+Create a function to open and read the solidity contract file and compile source:
+
+```
+def compile_source_file(file_path):
+   with open(file_path, 'r') as f:
+      source = f.read()
+
+   return compile_source(source)
+```
+
+Create a function to deploy the contract once it has been read and compiled:
+
+```
+def deploy_contract(we3, contract_interface):
+    tx_hash = we3.eth.contract(
+        abi=contract_interface['abi'],
+        bytecode=contract_interface['bin']).deploy()
+
+    address = we3.eth.getTransactionReceipt(tx_hash)['contractAddress']
+    return address
+```
+Provide the path to the contract and path:
 ```
 contract_source_path = '/contract/storage.sol'
 compiled_sol = compile_source_file('/contract/storage.sol')
