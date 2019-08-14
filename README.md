@@ -200,12 +200,9 @@ There are plenty of online resources for learning more about Solidity.  For expl
 
 ### Deploying Contracts
 
-Before a contract can be deployed, there will need to be some extra libraries imported into our demo.
+There are two ways to deploy a contract with Python.  It can be done with the Solidity Contract code written directly inline in a Python application.  It can also be compiled from a ```.sol``` Solidity Contract file.
 
-```
-from solc import compile_source
-from web3.contract import ConciseContract
-```
+This section specifically breaks down deploycontract.py in this repository.
 
 #### Deploying with Inline Solidity Code
 
@@ -309,6 +306,7 @@ assetregister = web3.eth.contract(
     abi=smartcontract_interface['abi'],
 )
 ```
+
 
 ## Using Flask to Build a dApp
 
