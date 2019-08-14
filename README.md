@@ -205,7 +205,6 @@ Before a contract can be deployed, there will need to be some extra libraries im
 ```
 from solc import compile_source
 from web3.contract import ConciseContract
-
 ```
 
 #### Deploying with Inline Solidity Code
