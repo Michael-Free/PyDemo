@@ -310,8 +310,10 @@ assetregister = web3.eth.contract(
 
 ## Using Flask to Build a dApp
 
-```
 
+### Setting up the Flask environment
+
+```
 # OS/APP Requirements
 import json
 import os.path
@@ -324,14 +326,25 @@ from wtforms import StringField, SelectField, SelectField, validators
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from werkzeug import secure_filename
 from wtforms.validators import InputRequired
+```
 
+```
 # DAPP Requirements
 from hexbytes import HexBytes
 from web3.auto import w3
 from deploycontract import assetregister, StorageContract
 ```
 
-### Setting up the Flask environment
+### Flask Routing & Deployed Contracts
+
+```
+app = Flask(__name__)
+bootstrap = Bootstrap(app)
+dir_path = os.path.dirname(os.path.realpath(__file__))
+app.config['SECRET_KEY'] ='TempSecretKey'
+```
+
+### Running the Flask Server
 
 Before starting, Flask requires at least 3 environment variables provided:  Location of your app, type of environment, and debug level.
 
@@ -345,4 +358,3 @@ In order to run the webserver, type ```flask run --host=0.0.0.0```
 
 ![Starting Flask](/media/flask-00.png)
 
-### Flask Routing & Deployed Contracts
