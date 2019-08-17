@@ -311,6 +311,11 @@ assetregister = web3.eth.contract(
 ## Using Flask to Build a dApp
 
 ```
+
+# OS/APP Requirements
+import json
+import os.path
+
 # Flask requirements
 from flask import Flask, render_template, jsonify, request, flash, redirect, url_for
 from flask_bootstrap import Bootstrap
@@ -319,6 +324,11 @@ from wtforms import StringField, SelectField, SelectField, validators
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from werkzeug import secure_filename
 from wtforms.validators import InputRequired
+
+# DAPP Requirements
+from hexbytes import HexBytes
+from web3.auto import w3
+from deploycontract import assetregister, StorageContract
 ```
 
 ### Setting up the Flask environment
