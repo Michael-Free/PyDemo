@@ -310,6 +310,17 @@ assetregister = web3.eth.contract(
 
 ## Using Flask to Build a dApp
 
+```
+# Flask requirements
+from flask import Flask, render_template, jsonify, request, flash, redirect, url_for
+from flask_bootstrap import Bootstrap
+from flask_wtf import FlaskForm
+from wtforms import StringField, SelectField, SelectField, validators
+from flask_wtf.file import FileField, FileRequired, FileAllowed
+from werkzeug import secure_filename
+from wtforms.validators import InputRequired
+```
+
 ### Setting up the Flask environment
 
 Before starting, Flask requires at least 3 environment variables provided:  Location of your app, type of environment, and debug level.
