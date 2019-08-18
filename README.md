@@ -1,3 +1,5 @@
+![BitcoinBay Logo](/media/bitcoinbay-logo-00.png)
+
 # Building dApps with Python, Flask, Solidity, & Web3.py
 
 ## Install Requirements
