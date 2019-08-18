@@ -5,6 +5,8 @@
 
 # Building dApps with Python, Flask, Solidity, & Web3.py
 
+## Table of Contents
+
 ## Install Requirements
 
 System requirements on Ubuntu Server 18.04 LTS
@@ -340,7 +342,7 @@ from web3.auto import w3
 from deploycontract import assetregister, StorageContract
 ```
 
-### Flask Routing & Deployed Contracts
+### Flask Wrapping
 
 ```
 app = Flask(__name__)
@@ -348,6 +350,12 @@ bootstrap = Bootstrap(app)
 dir_path = os.path.dirname(os.path.realpath(__file__))
 app.config['SECRET_KEY'] ='TempSecretKey'
 ```
+
+### Application Routing
+
+### Web3.py and Flask Apps
+
+### Page Templates
 
 ### Running the Flask Server
 
