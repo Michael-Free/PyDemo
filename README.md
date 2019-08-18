@@ -1,4 +1,4 @@
-![BitcoinBay Logo](/media/bitcoinbay-logo-00.png)
+![BitcoinBay Logo](/media/bitcoinbay-logo-00.jpeg)
 
 # Building dApps with Python, Flask, Solidity, & Web3.py
 
