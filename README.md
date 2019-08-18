@@ -1,4 +1,4 @@
-->![BitcoinBay Logo](/media/bitcoinbay-logo-00.jpeg)<-
+<center>![BitcoinBay Logo](/media/bitcoinbay-logo-00.jpeg)</center>
 
 # Building dApps with Python, Flask, Solidity, & Web3.py
 
