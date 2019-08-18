@@ -1,5 +1,5 @@
 <p align="center">
-![BitcoinBay Logo](/media/bitcoinbay-logo-00.jpeg)
+<img src="/media/bitcoinbay-logo-00.jpeg">
 </p>
 # Building dApps with Python, Flask, Solidity, & Web3.py
 
