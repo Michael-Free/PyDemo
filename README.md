@@ -408,7 +408,7 @@ class ReportForm(FlaskForm):
 ```
 
 #### Application Routing
-##### GET - / (home.html)
+##### GET - / 
 
 ```
 @app.route("/")
@@ -430,13 +430,17 @@ def register():
     return render_template('register.html', registerform=form, contractaddress=assetregister.address)
 ```
 
-##### POST - /registered (registered.html)
+##### POST - /registered
 
 ##### GET - /report
 
 ##### POST - /reported
 
-
-
-
+### Templates
+#### index.html
+#### home.html
+#### register.html
+#### registered.html
+#### report.html
+#### reported.html
 
