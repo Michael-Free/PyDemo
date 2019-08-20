@@ -383,23 +383,9 @@ if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
 ```
 
-### Page Templates
+### Create Forms for Smart Contract Functions
 
-#### Main Template - index.html
-
-#### Home Template - home.html
-
-#### Register Template - register.html
-
-#### Report Template - report.html
-
-#### Registered Template - registered.html
-
-#### Reported Template - reported.html
-
-### Application Routing for Smart Contract Functions
-
-#### Create Forms for Smart Contract Functions
+#### Register
 
 ```
 # Forms to fill out for the app
@@ -412,12 +398,15 @@ class RegisterForm(FlaskForm):
     ])
 ```
 
+#### Report
+
 ```
 class ReportForm(FlaskForm):
     ethaddress = SelectField('Ethereum Address', choices=[])
     serialnumber = StringField('Serial Number', [InputRequired()])
     location = StringField('Location', [InputRequired()])
 ```
+#### Main Template
 
 #### GET - / (home.html)
 
