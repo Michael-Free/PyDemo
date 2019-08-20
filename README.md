@@ -383,35 +383,6 @@ if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
 ```
 
-### Application Routing for Smart Contract Functions
-
-#### Create Forms for Smart Contract Functions
-```
-# Forms to fill out for the app
-class RegisterForm(FlaskForm):
-    ethaddress = SelectField('Ethereum Address', choices=[])
-    serialnumber = StringField('Serial Number', [InputRequired()])
-    photo = FileField('Photo', validators=[
-        FileRequired(),
-        FileAllowed(['jpg','jpeg','png'], 'Images only!')
-    ])
-class ReportForm(FlaskForm):
-    ethaddress = SelectField('Ethereum Address', choices=[])
-    serialnumber = StringField('Serial Number', [InputRequired()])
-    location = StringField('Location', [InputRequired()])
-```
-
-
-#### GET - /register
-
-#### POST - /registered
-
-#### GET - /report
-
-#### POST - /reported
-
-### Web3.py and Flask Apps
-
 ### Page Templates
 
 #### Main Template - index.html
@@ -425,4 +396,58 @@ class ReportForm(FlaskForm):
 #### Registered Template - registered.html
 
 #### Reported Template - reported.html
+
+### Application Routing for Smart Contract Functions
+
+#### Create Forms for Smart Contract Functions
+
+```
+# Forms to fill out for the app
+class RegisterForm(FlaskForm):
+    ethaddress = SelectField('Ethereum Address', choices=[])
+    serialnumber = StringField('Serial Number', [InputRequired()])
+    photo = FileField('Photo', validators=[
+        FileRequired(),
+        FileAllowed(['jpg','jpeg','png'], 'Images only!')
+    ])
+```
+
+```
+class ReportForm(FlaskForm):
+    ethaddress = SelectField('Ethereum Address', choices=[])
+    serialnumber = StringField('Serial Number', [InputRequired()])
+    location = StringField('Location', [InputRequired()])
+```
+
+#### GET - / (home.html)
+
+```
+@app.route("/")
+def home():
+    return render_template('home.html', contractaddress=assetregister.address)
+````
+
+#### GET - /register (register.html)
+
+```
+@app.route("/register", methods=['GET'])
+def register():
+    form = RegisterForm()
+    form.ethaddress.choices = []
+    n = -1
+    for chooseaccount in w3.personal.listAccounts:
+        n = n+1
+        form.ethaddress.choices += [(n, chooseaccount)]
+    return render_template('register.html', registerform=form, contractaddress=assetregister.address)
+```
+
+#### POST - /registered (registered.html)
+
+#### GET - /report
+
+#### POST - /reported
+
+
+
+
 
