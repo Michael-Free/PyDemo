@@ -383,9 +383,9 @@ if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
 ```
 
-### Create Forms for Smart Contract Functions
+#### Create Forms for Smart Contract Functions
 
-#### Register
+##### Register
 
 ```
 # Forms to fill out for the app
@@ -398,7 +398,7 @@ class RegisterForm(FlaskForm):
     ])
 ```
 
-#### Report
+##### Report
 
 ```
 class ReportForm(FlaskForm):
@@ -406,9 +406,9 @@ class ReportForm(FlaskForm):
     serialnumber = StringField('Serial Number', [InputRequired()])
     location = StringField('Location', [InputRequired()])
 ```
-#### Main Template
 
-#### GET - / (home.html)
+#### Application Routing
+##### GET - / (home.html)
 
 ```
 @app.route("/")
@@ -416,7 +416,7 @@ def home():
     return render_template('home.html', contractaddress=assetregister.address)
 ````
 
-#### GET - /register (register.html)
+##### GET - /register (register.html)
 
 ```
 @app.route("/register", methods=['GET'])
@@ -430,11 +430,11 @@ def register():
     return render_template('register.html', registerform=form, contractaddress=assetregister.address)
 ```
 
-#### POST - /registered (registered.html)
+##### POST - /registered (registered.html)
 
-#### GET - /report
+##### GET - /report
 
-#### POST - /reported
+##### POST - /reported
 
 
 
