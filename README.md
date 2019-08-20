@@ -383,10 +383,15 @@ if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
 ```
 
-### Application Routing
+### Application Routing for Smart Contract Functions
 
+#### GET - /register
 
+#### POST - /registered
 
+#### GET - /report
+
+#### POST - /reported
 
 ### Web3.py and Flask Apps
 
@@ -394,6 +399,14 @@ if __name__ == '__main__':
 
 #### Main Template - index.html
 
-#### 
+#### Home Template - home.html
 
-####
+#### Register Template - register.html
+
+#### Report Template - report.html
+
+#### Registered Template - registered.html
+
+#### Reported Template - reported.html
+
+
