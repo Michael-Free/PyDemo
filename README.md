@@ -381,64 +381,19 @@ EOF
 ```
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
-
 ```
 
 ### Application Routing
+
+
+
 
 ### Web3.py and Flask Apps
 
 ### Page Templates
 
-#### Displaying The Contract Address
+#### Main Template - index.html
 
-```index.html```
+#### 
 
-```
-<!DOCTYPE html>
-<html>
-<head>
-<title>Bitcoin Bay KW + WatPy Solidity Demo</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-```
-
-```
-<body>
-<div class="w3-container w3-padding-small w3-theme-d3">
-  <div class="w3-right">
-      Contract Address: {{ contractaddress }}
-  </div>
-</div>
-```
-
-```
-</div>
-<div class="w3-bar w3-theme w3-xlarge">
-  <a class="w3-bar-item w3-button" href="/"><i class="fa fa-gears"></i></a>
-  <span class="w3-bar-item">Bitcoin Bay + WatPy Solidity Demo</span>
-  <a class="w3-bar-item w3-button w3-right" href="#"><i class="fa fa-search"></i></a>
-</div>
-
-{% block content %}{% endblock %}
-</body>
-</html>
-```
-
-### Running the Flask Server
-
-Before starting, Flask requires at least 3 environment variables provided:  Location of your app, type of environment, and debug level.
-
-```
-export FLASK_APP="dapp.py"
-export FLASK_ENV=development
-export FLASK_DEBUG=0
-```
-
-In order to run the webserver, type ```flask run --host=0.0.0.0```
-
-![Starting Flask](/media/flask-00.png)
-
+####
