@@ -385,6 +385,23 @@ if __name__ == '__main__':
 
 ### Application Routing for Smart Contract Functions
 
+#### Create Forms for Smart Contract Functions
+```
+# Forms to fill out for the app
+class RegisterForm(FlaskForm):
+    ethaddress = SelectField('Ethereum Address', choices=[])
+    serialnumber = StringField('Serial Number', [InputRequired()])
+    photo = FileField('Photo', validators=[
+        FileRequired(),
+        FileAllowed(['jpg','jpeg','png'], 'Images only!')
+    ])
+class ReportForm(FlaskForm):
+    ethaddress = SelectField('Ethereum Address', choices=[])
+    serialnumber = StringField('Serial Number', [InputRequired()])
+    location = StringField('Location', [InputRequired()])
+```
+
+
 #### GET - /register
 
 #### POST - /registered
@@ -408,5 +425,4 @@ if __name__ == '__main__':
 #### Registered Template - registered.html
 
 #### Reported Template - reported.html
-
 
