@@ -25,10 +25,6 @@ app.config['SECRET_KEY'] ='TempSecretKey'
 class RegisterForm(FlaskForm):
     ethaddress = SelectField('Ethereum Address', choices=[])
     serialnumber = StringField('Serial Number', [InputRequired()])
-    photo = FileField('Photo', validators=[
-        FileRequired(),
-        FileAllowed(['jpg','jpeg','png'], 'Images only!')
-    ])
 class ReportForm(FlaskForm):
     ethaddress = SelectField('Ethereum Address', choices=[])
     serialnumber = StringField('Serial Number', [InputRequired()])
@@ -52,21 +48,15 @@ def register():
 
 @app.route("/registered", methods=['POST'])
 def registered():
-    rec_contractaddress = assetregister.address
-    rec_ethaddress = w3.eth.accounts[int(request.form['ethaddress'])]
-    rec_accountnumber = request.form['ethaddress']
-    rec_serial = request.form['serialnumber']
-    if 'photo' in request.files:
-        photo = request.files['photo']
-        upload_path = str(dir_path)+'/upload'
-        if photo.filename != '':
-            photo.save(os.path.join(upload_path, photo.filename))
-            #upload_ipfs = ipfs.add(str(upload_path)+'/'+bikephoto.filename) 
-            #ipfs_img_hash = json.loads(str(json.dumps(upload_ipfs)))
-            #print(ipfs_img_hash['Hash'])
     registered = assetregister.functions.setRegistration(rec_serial, rec_ethaddress).transact()
-    register_receipt = w3.eth.getTransactionReceipt(registered)
-    return render_template('registered.html', reg_photo="form.photo.data", reg_ethaddress=rec_ethaddress, reg_serial=rec_serial, contractaddress=assetregister.address)
+    return render_template(
+        'registered.html',
+        reg_ethaddress=w3.eth.accounts[int(request.form['ethaddress'])],
+        reg_serial=request.form['serialnumber'],
+        reg_accountnumber=request.form['ethaddress'],
+        reg_receipt=w3.eth.getTransactionReceipt(registered),
+        contractaddress=assetregister.address
+    )
 
 
 # Wrapper
