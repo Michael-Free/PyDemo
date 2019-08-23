@@ -1,6 +1,8 @@
+
 # OS/APP Requirements
 import json
 import os.path
+import binascii
 
 # Flask requirements
 from flask import Flask, render_template, jsonify, request, flash, redirect, url_for
@@ -48,7 +50,15 @@ def register():
 
 @app.route("/registered", methods=['POST'])
 def registered():
-    registered = assetregister.functions.setRegistration(rec_serial, rec_ethaddress).transact()
+    registered = assetregister.functions.setRegistration(request.form['serialnumber'], w3.eth.accounts[int(request.form['ethaddress'])]).transact()
+    tx =  w3.eth.getTransaction(registered)
+    tx_hash = HexBytes.hex(tx['hash'])
+    tx_data = HexBytes(tx['input'])
+    
+    print ()
+    print ("transaction hash:" + tx_hash)
+    print ("transaction data: " + str(tx_data))
+    print("transaction data translated: " + "adfasdf")
     return render_template(
         'registered.html',
         reg_ethaddress=w3.eth.accounts[int(request.form['ethaddress'])],
@@ -57,7 +67,6 @@ def registered():
         reg_receipt=w3.eth.getTransactionReceipt(registered),
         contractaddress=assetregister.address
     )
-
 
 # Wrapper
 if __name__ == '__main__':
