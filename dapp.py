@@ -1,16 +1,12 @@
-
 # OS/APP Requirements
 import json
 import os.path
-import binascii
 
 # Flask requirements
 from flask import Flask, render_template, jsonify, request, flash, redirect, url_for
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SelectField, validators
-from flask_wtf.file import FileField, FileRequired, FileAllowed
-from werkzeug import secure_filename
 from wtforms.validators import InputRequired
 
 # DAPP Requirements
@@ -23,48 +19,81 @@ bootstrap = Bootstrap(app)
 dir_path = os.path.dirname(os.path.realpath(__file__))
 app.config['SECRET_KEY'] ='TempSecretKey'
 
-# Forms to fill out for the app
+# Registration Form for the application
 class RegisterForm(FlaskForm):
+    # Drop down form field for choosing the ethereum address
     ethaddress = SelectField('Ethereum Address', choices=[])
+    # A text input field for the form 
     serialnumber = StringField('Serial Number', [InputRequired()])
+# Reporting Form for the application
 class ReportForm(FlaskForm):
+    # Drop down form field for choosing the ethereum address
     ethaddress = SelectField('Ethereum Address', choices=[])
+    # A text input field for the form - this one for the serial number
     serialnumber = StringField('Serial Number', [InputRequired()])
+    # A text input field for the form - this one is for location data
     location = StringField('Location', [InputRequired()])
 
 # Application routes
 @app.route("/")
 def home():
-    return render_template('home.html', contractaddress=assetregister.address)
+    # return the home.html template
+    return render_template(
+        'home.html',
+         # Pass the contract address to the home.html template
+         contractaddress=assetregister.address
+    )
 
 @app.route("/register", methods=['GET'])
 def register():
+    # Calling the registration form class
     form = RegisterForm()
     form.ethaddress.choices = []
     n = -1
-    # LIST PERSONAL ACCOUNTS
+    # List personal accounts.
     for chooseaccount in w3.personal.listAccounts:
+        # Using n+1 to number each ethereum account
         n = n+1
         form.ethaddress.choices += [(n, chooseaccount)]
-    return render_template('register.html', registerform=form, contractaddress=assetregister.address)
+    # return the register.html template
+    return render_template(
+        'register.html',
+        # pass the register form to the register.html template
+        registerform=form,
+        # pass the contract address to the register.html template
+        contractaddress=assetregister.address
+    )
 
 @app.route("/registered", methods=['POST'])
 def registered():
-    registered = assetregister.functions.setRegistration(request.form['serialnumber'], w3.eth.accounts[int(request.form['ethaddress'])]).transact()
+    # calling the setRegistration function in the smart contract
+    registered = assetregister.functions.setRegistration(
+        # Pass the serial number from the registration form to the contract function
+        request.form['serialnumber'],
+        # Pass the chosen ethereum address to the smart contract and use that to send eth from
+        w3.eth.accounts[int(request.form['ethaddress'])]).transact() # create the transaction
+    # Get the transaction
     tx =  w3.eth.getTransaction(registered)
+    # Get the transaction hash 
     tx_hash = HexBytes.hex(tx['hash'])
-    tx_data = HexBytes(tx['input'])
-    
-    print ()
-    print ("transaction hash:" + tx_hash)
-    print ("transaction data: " + str(tx_data))
-    print("transaction data translated: " + "adfasdf")
+    # Get the data sent from the transaction
+    tx_data = HexBytes.hex(tx['input'])
+    # return the registered.html template
     return render_template(
         'registered.html',
+        # pass the ethereum address chosen in /register to the registered.html template
         reg_ethaddress=w3.eth.accounts[int(request.form['ethaddress'])],
+        # pass the serial number used in /register to the registered.html template
         reg_serial=request.form['serialnumber'],
+        # pass the account number (n+1) to the template
         reg_accountnumber=request.form['ethaddress'],
+        # pass the transaction receipt on to the template
         reg_receipt=w3.eth.getTransactionReceipt(registered),
+        # pass the transaction hash to the template
+        reg_txhash= tx_hash,
+        # Pass the transaction data (inputs) to the template
+        reg_txdata= tx_data,
+        # Pass the contract address to the template
         contractaddress=assetregister.address
     )
 
