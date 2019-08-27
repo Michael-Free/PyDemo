@@ -187,40 +187,23 @@ Python wrapper around the solc Solidity compiler. Here is an integral part of bu
 #### Sample Contract
 
 ```
-pragma solidity ^0.4.24;
+pragma solidity ^0.4.21;
 contract StorageContract {
     /* Define variable owner of the type address */
     string public serialnumber;
     address public assetowner;
-    string public location;
-
+    /* create an event for registration - events help return values for the ui. */
     event Registration(
        string serialnumber,
        address assetowner
     );
-
+    /* create a function that uses the 2 variables  */
     function setRegistration (string newSerialnumber, address newAssetowner) public {
         serialnumber = newSerialnumber;
         assetowner = newAssetowner;
         emit Registration(serialnumber, assetowner);
-
-    }
-
-    event Reporting(
-       string serialnumber,
-       string location,
-       address assetowner
-    );
-
-    function setReporting (string newSerialnumber, string newLocation, address newAssetowner) public {
-        serialnumber = newSerialnumber;
-        location = newLocation;
-        assetowner = newAssetowner;
-        emit Reporting(serialnumber, location, assetowner);
-
     }
 }
-
 ```
 
 #### Learning More About Solidity
@@ -281,7 +264,6 @@ Create a function to open and read the solidity contract file and compile source
 def compile_source_file(file_path):
    with open(file_path, 'r') as f:
       source = f.read()
-
    return compile_source(source)
 ```
 
@@ -292,7 +274,6 @@ def deploy_contract(we3, contract_interface):
     tx_hash = we3.eth.contract(
         abi=contract_interface['abi'],
         bytecode=contract_interface['bin']).deploy()
-
     address = we3.eth.getTransactionReceipt(tx_hash)['contractAddress']
     return address
 ```
@@ -373,7 +354,6 @@ if __name__ == '__main__':
 #### Create Forms for Smart Contract Functions
 
 ##### Register
-
 ```
 # Forms to fill out for the app
 class RegisterForm(FlaskForm):
@@ -411,88 +391,45 @@ def register():
 
 ##### POST - /registered
 
-
 ### Templates
+
 #### index.html
 ```
-<!DOCTYPE html>
-<html>
-<head>
-<title>Bitcoin Bay KW + WatPy Solidity Demo</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
 <div class="w3-container w3-padding-small w3-theme-d3">
   <div class="w3-right">
       Contract Address: {{ contractaddress }}
   </div>
 </div>
-<div class="w3-bar w3-theme w3-xlarge">
-  <a class="w3-bar-item w3-button" href="/"><i class="fa fa-gears"></i></a>
-  <span class="w3-bar-item">Bitcoin Bay + WatPy Solidity Demo</span>
-  <a class="w3-bar-item w3-button w3-right" href="#"><i class="fa fa-search"></i></a>
-</div>
+```
 
+```
 {% block content %}{% endblock %}
-</body>
-</html>
 ```
-#### home.html
-```
-{% extends 'index.html' %}
-{% block content %}
-    <div class="w3-cell-row" align="center">
-      <div class="w3-container w3-cell w3-mobile">
-        <div class="w3-card">
-          <p><a href="/register"><i class="fa fa-address-card fa-5x"></i>
-          <br>REGISTER</a></p>
-        </div>
-      </div>
-    </div>
-{% endblock content %}
-```
+
 #### register.html
 ```
-{% extends 'index.html' %}
-{% block content %}
-    <div class="w3-cell-row" align="center">
-      <div class="w3-container w3-cell w3-mobile">
-          <p><i class="fa fa-address-card fa-5x"></i>
-          <br>REGISTER</p>
-          <form method="POST" action="{{ url_for('registered') }}" enctype="multipart/form-data">
-            {{ registerform.csrf_token }}
-            <table align="center">
-              <tr>
-                <td>{{ registerform.ethaddress.label }} :</td>
-                <td>{{ registerform.ethaddress }}</td>
-              </tr>
-              <tr>
-                <td>{{ registerform.serialnumber.label }} :</td>
-                <td>{{ registerform.serialnumber }}</td>
-              </tr>
-            </table>
-            <input type="submit" value="Register">
-          </form>
-      </div>
-    </div>
-{% endblock content %}
+<form method="POST" action="{{ url_for('registered') }}" enctype="multipart/form-data">
+{{ registerform.csrf_token }}
+```
+
+```
+<td>{{ registerform.ethaddress.label }} :</td>
+<td>{{ registerform.ethaddress }}</td>
+```
+
+```
+<td>{{ registerform.serialnumber.label }} :</td>
+<td>{{ registerform.serialnumber }}</td>
+```
+
+```
+<input type="submit" value="Register">
+</form>
 ```
 
 #### registered.html
 ```
-{% extends 'index.html' %}
-{% block content %}
-    <div class="w3-cell-row" align="center">
-      <div class="w3-container w3-cell w3-mobile">
-          <p><i class="fa fa-address-card fa-5x"></i>
-          <br>REGISTERED</p>
-          Ethereum Address: {{ reg_ethaddress }} <br>
-          Serial Number: {{ reg_serial }} <br>
-      </div>
-    </div>
-{% endblock content %}
+<br>REGISTERED</p>
+Ethereum Address: {{ reg_ethaddress }} <br>
+Serial Number: {{ reg_serial }} <br>
 ```
-
