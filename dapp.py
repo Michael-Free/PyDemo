@@ -25,14 +25,6 @@ class RegisterForm(FlaskForm):
     ethaddress = SelectField('Ethereum Address', choices=[])
     # A text input field for the form 
     serialnumber = StringField('Serial Number', [InputRequired()])
-# Reporting Form for the application
-class ReportForm(FlaskForm):
-    # Drop down form field for choosing the ethereum address
-    ethaddress = SelectField('Ethereum Address', choices=[])
-    # A text input field for the form - this one for the serial number
-    serialnumber = StringField('Serial Number', [InputRequired()])
-    # A text input field for the form - this one is for location data
-    location = StringField('Location', [InputRequired()])
 
 # Application routes
 @app.route("/")

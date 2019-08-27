@@ -3,31 +3,18 @@ contract StorageContract {
     /* Define variable owner of the type address */
     string public serialnumber;
     address public assetowner;
-    string public location;
 
+    /* create an event for registration - events help return values for the ui. */
     event Registration(
        string serialnumber,
        address assetowner
     );
 
+    /* create a function that uses the 2 variables  */
     function setRegistration (string newSerialnumber, address newAssetowner) public {
         serialnumber = newSerialnumber;
         assetowner = newAssetowner;
         emit Registration(serialnumber, assetowner);
-
-    }
-
-    event Reporting(
-       string serialnumber,
-       string location,
-       address assetowner
-    );
-
-    function setReporting (string newSerialnumber, string newLocation, address newAssetowner) public {
-        serialnumber = newSerialnumber;
-        location = newLocation;
-        assetowner = newAssetowner;
-        emit Reporting(serialnumber, location, assetowner);
-
     }
 }
+
