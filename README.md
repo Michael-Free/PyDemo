@@ -28,7 +28,6 @@
   * [Building A Contract](#building-a-contract)
     * [Sample Contract](#sample-contract)
     * [Learning More About Solidity](#learning-more-about-solidity)
-    * [Inherting Other Contracts](#inherting-other-contracts)
   * [Deploying Contracts](#deploying-contracts)
     * [Deploying with Inline Solidity Code](#deploying-with-inline-solidity-code)
     * [Deploying with a .sol Solidity Contract](#deploying-with-a-sol-solidity-contract)
@@ -212,8 +211,6 @@ There are plenty of online resources for learning more about Solidity.  For expl
 * Solidity Documentation: https://solidity.readthedocs.io/en/v0.4.24/
 * OpenZeppelin: https://github.com/OpenZeppelin/openzeppelin-contracts
 * BlockGeeks: https://github.com/blockgeeks/workshop/tree/master/src/contracts
-
-#### Inherting Other Contracts
 
 ### Deploying Contracts
 
@@ -423,9 +420,8 @@ def registered():
 
 ```index.html``` serves as the main template for this application.  This template loads some CSS templates, and most importantly provides the contract address in the top-right corner of the application.
 
-The contract address is provided by ```deploycontract```'s ```assetregister.address``` call.  
 
-dapp.py```
+```dapp.py``` passes ```assetregister.address``` as the variable ```contractaddress``` to this template.
 
 ```
 <div class="w3-container w3-padding-small w3-theme-d3">
@@ -435,11 +431,11 @@ dapp.py```
 </div>
 ```
 
+All of the other pages in this demo will inherit this template and display other information between these two tags:
+
 ```
 {% block content %}{% endblock %}
 ```
-
-
 
 #### register.html
 
