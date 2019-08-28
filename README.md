@@ -417,10 +417,7 @@ def registered():
 
 #### index.html
 
-```index.html``` serves as the main template for this application.  This template loads some CSS templates, and most importantly provides the contract address in the top-right corner of the application.
-
-
-```dapp.py``` passes ```assetregister.address``` as the variable ```contractaddress``` to this template.
+This is the main template for the dApp when it is loaded in a browser.  Aside from some basic HTML and CSS, pay attention to the variable ```{{ contractaddress}}``` that is passed from dapp.py to the template.
 
 ```
 <div class="w3-container w3-padding-small w3-theme-d3">
@@ -430,7 +427,9 @@ def registered():
 </div>
 ```
 
-All of the other pages in this demo will inherit this template and display other information between these two tags:
+All of the other pages in this demo will inherit this template: home.html, register.html, registered.html.
+
+It will display application information between these two tags in this file: 
 
 ```
 {% block content %}{% endblock %}
@@ -438,15 +437,14 @@ All of the other pages in this demo will inherit this template and display other
 
 #### home.html
 
-```home.html``` and other templates(```register```,```registered```, ```report```,```reported```) will import and extend the content 
-
+This is nothing more than the landing page or "menu" for the other routes in the dApp. This template extends ```index.html``` and provides application content between the ```{% block content %}{% endblock %}``` tags.
+  
 
 #### register.html
 
 
 ```
 <form method="POST" action="{{ url_for('registered') }}" enctype="multipart/form-data">
-{{ registerform.csrf_token }}
 ```
 
 ```
