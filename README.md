@@ -374,7 +374,7 @@ def home():
     return render_template('home.html', contractaddress=assetregister.address)
 ````
 
-##### GET - /register (register.html)
+##### GET - /register
 
 ```
 @app.route("/register", methods=['GET'])
@@ -390,6 +390,25 @@ def register():
 
 ##### POST - /registered
 
+```
+def registered():
+    registered = assetregister.functions.setRegistration(
+        request.form['serialnumber'],
+        w3.eth.accounts[int(request.form['ethaddress'])]).transact() # create the transaction
+    tx =  w3.eth.getTransaction(registered)
+    tx_hash = HexBytes.hex(tx['hash'])
+    tx_data = HexBytes.hex(tx['input'])
+    return render_template(
+        'registered.html',
+        reg_ethaddress=w3.eth.accounts[int(request.form['ethaddress'])],
+        reg_serial=request.form['serialnumber'],
+        reg_accountnumber=request.form['ethaddress'],
+        reg_receipt=w3.eth.getTransactionReceipt(registered),
+        reg_txhash= tx_hash,
+        reg_txdata= tx_data,
+        contractaddress=assetregister.address
+    )
+```
 ### Templates
 
 #### index.html
