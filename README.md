@@ -365,7 +365,10 @@ class RegisterForm(FlaskForm):
 ```
 
 
-#### Application Routing
+#### Application Routing - dapp.py
+
+```dapp.py``` is the file that runs the Flask server for this demonstration. It provides the routing for our web application.  ```dapp.py`` also inherits the functions  of ```deploycontract.py```, which is our interface with smart contract's functions.
+
 ##### GET - / 
 
 ```
@@ -375,6 +378,7 @@ def home():
 ````
 
 ##### GET - /register
+
 
 ```
 @app.route("/register", methods=['GET'])
@@ -389,6 +393,7 @@ def register():
 ```
 
 ##### POST - /registered
+
 
 ```
 def registered():
@@ -411,7 +416,13 @@ def registered():
 ```
 ### Templates
 
+
 #### index.html
+```index.html``` serves as the main template that inherits the CSS templates, and basic layout of the page.
+
+There's a few CSS templates imported, but the most important aspect is the smart contract address is passed through to this template in the top-right corner of the dApp.  This will need to be passed to every route in the dApp with this file. 
+
+
 ```
 <div class="w3-container w3-padding-small w3-theme-d3">
   <div class="w3-right">
