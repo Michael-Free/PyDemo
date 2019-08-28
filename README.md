@@ -437,8 +437,27 @@ It will display application information between these two tags in this file:
 
 #### home.html
 
-This is nothing more than the landing page or "menu" for the other routes in the dApp. This template extends ```index.html``` and provides application content between the ```{% block content %}{% endblock %}``` tags.
-  
+This is nothing more than the landing page or "menu" for the other routes in the dApp.
+
+```home.html```, like other templates are extensions of the ```index.html``` template:
+
+```
+{% extends 'index.html' %}
+```
+The template's content is then imported in between the block content tags:
+
+```
+{% block content %}
+    <div class="w3-cell-row" align="center">
+      <div class="w3-container w3-cell w3-mobile">
+        <div class="w3-card">
+          <p><a href="/register"><i class="fa fa-address-card fa-5x"></i>
+          <br>REGISTER</a></p>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
+``` 
 
 #### register.html
 
