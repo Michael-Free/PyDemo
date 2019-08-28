@@ -227,25 +227,24 @@ Create a variable for the contract source code.  Create a set of triple quotes, 
 
 ```
 contract_source_code = '''
-pragma solidity ^0.4.24;
+pragma solidity ^0.4.21;
 contract StorageContract {
     /* Define variable owner of the type address */
     string public serialnumber;
     address public assetowner;
-    string public location;
 
+    /* create an event for registration - events help return values for the ui. */
     event Registration(
        string serialnumber,
        address assetowner
     );
 
+    /* create a function that uses the 2 variables  */
     function setRegistration (string newSerialnumber, address newAssetowner) public {
         serialnumber = newSerialnumber;
         assetowner = newAssetowner;
         emit Registration(serialnumber, assetowner);
-
     }
-
 }
 '''
 ```
