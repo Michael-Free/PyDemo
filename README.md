@@ -305,7 +305,6 @@ assetregister = web3.eth.contract(
 )
 ```
 
-
 ## Using Flask to Build a dApp
 
 
@@ -436,6 +435,11 @@ All of the other pages in this demo will inherit this template and display other
 ```
 {% block content %}{% endblock %}
 ```
+
+#### home.html
+
+```home.html``` and other templates(```register```,```registered```, ```report```,```reported```) will import and extend the content 
+
 
 #### register.html
 
