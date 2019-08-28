@@ -353,6 +353,7 @@ if __name__ == '__main__':
 #### Create Forms for Smart Contract Functions
 
 ##### Register
+
 ```
 # Forms to fill out for the app
 class RegisterForm(FlaskForm):
@@ -364,10 +365,10 @@ class RegisterForm(FlaskForm):
     ])
 ```
 
-
 #### Application Routing - dapp.py
 
-```dapp.py``` is the file that runs the Flask server for this demonstration. It provides the routing for our web application.  ```dapp.py`` also inherits the functions  of ```deploycontract.py```, which is our interface with smart contract's functions.
+```dapp.py``` is the file that runs the Flask server for this demonstration. It provides the routing for our web application.  ```dapp.py``` also inherits the functions  of ```deploycontract.py```, which is the interface with the smart contract's functions. This is what provides the web browser interface between your dApp and the end user.
+
 
 ##### GET - / 
 
@@ -414,14 +415,17 @@ def registered():
         contractaddress=assetregister.address
     )
 ```
+
 ### Templates
 
 
 #### index.html
-```index.html``` serves as the main template that inherits the CSS templates, and basic layout of the page.
 
-There's a few CSS templates imported, but the most important aspect is the smart contract address is passed through to this template in the top-right corner of the dApp.  This will need to be passed to every route in the dApp with this file. 
+```index.html``` serves as the main template for this application.  This template loads some CSS templates, and most importantly provides the contract address in the top-right corner of the application.
 
+The contract address is provided by ```deploycontract```'s ```assetregister.address``` call.  
+
+dapp.py```
 
 ```
 <div class="w3-container w3-padding-small w3-theme-d3">
@@ -435,7 +439,11 @@ There's a few CSS templates imported, but the most important aspect is the smart
 {% block content %}{% endblock %}
 ```
 
+
+
 #### register.html
+
+
 ```
 <form method="POST" action="{{ url_for('registered') }}" enctype="multipart/form-data">
 {{ registerform.csrf_token }}
@@ -457,6 +465,7 @@ There's a few CSS templates imported, but the most important aspect is the smart
 ```
 
 #### registered.html
+
 ```
 <br>REGISTERED</p>
 Ethereum Address: {{ reg_ethaddress }} <br>
