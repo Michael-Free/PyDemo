@@ -1,7 +1,3 @@
-# OS/APP Requirements
-import json
-import os.path
-
 # Flask requirements
 from flask import Flask, render_template, jsonify, request, flash, redirect, url_for
 from flask_bootstrap import Bootstrap
@@ -16,7 +12,6 @@ from deploycontract import assetregister, StorageContract
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
-dir_path = os.path.dirname(os.path.realpath(__file__))
 app.config['SECRET_KEY'] ='TempSecretKey'
 
 # Registration Form for the application
