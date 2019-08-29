@@ -21,9 +21,12 @@ app.config['SECRET_KEY'] ='TempSecretKey'
 
 # Registration Form for the application
 class RegisterForm(FlaskForm):
-    # Drop down form field for choosing the ethereum address
+    # Drop down form field for choosing the ethereum address.
+    # SelectField specifies that this will be a drop down field.
+    # 'Ethereum Address' is the label we'll give to this drop down field
+
     ethaddress = SelectField('Ethereum Address', choices=[])
-    # A text input field for the form 
+    # A text input field for the form.
     serialnumber = StringField('Serial Number', [InputRequired()])
 
 # Application routes

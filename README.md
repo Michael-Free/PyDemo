@@ -482,11 +482,8 @@ The same thing happens for bringing up the serial number form field. This is a t
 <td>{{ registerform.serialnumber.label }} :</td>
 <td>{{ registerform.serialnumber }}</td>
 ```
-Simple submit button:
 
-```
-<input type="submit" value="Register">
-```
+These are the two values that will be passed to the smart contract.
 
 #### registered.html
 
