@@ -461,6 +461,7 @@ The template's content is then imported in between the block content tags:
 
 #### register.html
 
+This template provides the user input for the dApp. Once the form is submitted, it will call the ```/registered``` route and pass that information to that function, and display the ```registered.html``` template in the next section.
 
 ```
 <form method="POST" action="{{ url_for('registered') }}" enctype="multipart/form-data">
@@ -485,7 +486,6 @@ Simple submit button:
 
 ```
 <input type="submit" value="Register">
-</form>
 ```
 
 #### registered.html
