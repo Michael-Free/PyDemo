@@ -466,15 +466,22 @@ The template's content is then imported in between the block content tags:
 <form method="POST" action="{{ url_for('registered') }}" enctype="multipart/form-data">
 ```
 
+Within the double-curly brackets in these templates, you can display vars, objects, and other information into the template from the python application.
+
+What can be seen below is calling the ```RegisterForm``` class in ```dapp.py```.  Here is 'Ethereum Address' text label from that class, along with the drop-down field itself.
+
 ```
 <td>{{ registerform.ethaddress.label }} :</td>
 <td>{{ registerform.ethaddress }}</td>
 ```
 
+The same thing happens for bringing up the serial number form field. This is a text string provided to the smart contract through this form. 
+
 ```
 <td>{{ registerform.serialnumber.label }} :</td>
 <td>{{ registerform.serialnumber }}</td>
 ```
+Simple submit button:
 
 ```
 <input type="submit" value="Register">
