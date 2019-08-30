@@ -455,6 +455,7 @@ The template's content is then imported in between the block content tags:
     </div>
 {% endblock content %}
 ``` 
+There is nothing interesting happening here. This is merely demonstrating how to insert some html content inbetween the ```{% block content %}``` and ```{% endblock content%}``` in ```index.html```.
 
 #### register.html
 
