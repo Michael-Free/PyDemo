@@ -179,8 +179,6 @@ Solc is a binary and commandline interface for the Solidity Compiler (LLLC).
 
 Python wrapper around the solc Solidity compiler. Here is an integral part of building a python-based dApp. 
 
-#### 
-
 ### Building A Contract
 
 #### Sample Contract
@@ -332,12 +330,11 @@ from web3.auto import w3
 from deploycontract import assetregister, StorageContract
 ```
 
-### Flask Wrapping
+### Flask Application
 
 ```
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
-dir_path = os.path.dirname(os.path.realpath(__file__))
 app.config['SECRET_KEY'] ='TempSecretKey'
 ```
 EOF
@@ -461,7 +458,9 @@ The template's content is then imported in between the block content tags:
 
 #### register.html
 
-This template provides the user input for the dApp. Once the form is submitted, it will call the ```/registered``` route and pass that information to that function, and display the ```registered.html``` template in the next section.
+This template provides the user input for the dApp. This is the template for our GET function.
+
+Once the form is submitted, it will call the ```/registered``` route and pass that information to that function, and display the ```registered.html``` template in the next section. This call to the template and route is represented by ```{{ url_for('registered') }}``` in the html form tags:
 
 ```
 <form method="POST" action="{{ url_for('registered') }}" enctype="multipart/form-data">
@@ -486,6 +485,7 @@ The same thing happens for bringing up the serial number form field. This is a t
 These are the two values that will be passed to the smart contract.
 
 #### registered.html
+
 
 ```
 <br>REGISTERED</p>
