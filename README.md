@@ -32,7 +32,7 @@
     * [Deploying with Inline Solidity Code](#deploying-with-inline-solidity-code)
     * [Deploying with a .sol Solidity Contract](#deploying-with-a-sol-solidity-contract)
     * [Building The Contract Interface](#building-the-contract-interface)
-
+)
 ## Install Requirements
 
 System requirements on Ubuntu Server 18.04 LTS
@@ -55,6 +55,7 @@ Install Ganache - the test ethereum blockchain and pip3 requirements
 sudo npm install -g ganache-cli
 sudo pip3 install -r requirements.txt
 ```
+[Back To Top](#table-of-contents)
 
 ## Getting Started
 
@@ -75,22 +76,26 @@ When it's started, it will generate 10 ETH Public Key addresses and their corres
 Other information is displayed like HD Wallet, which can be used to import these accounts into a wallet or other applications (Metamask, Parity, etc).
 
 For the purposes of this demonstration, we wont be going too deep into Gas Limits and Gas Prices.  If you would like to learn more about it, this is probably the most informative explanation: https://blockgeeks.com/guides/ethereum-gas/
+[Back To Top](#table-of-contents)
 
 ### Get Familiar with Web3.py
 
 Web3 is an API to the Ethereum Blockchain to build applications with.  There are many implementations. The most widely used implementation is Web3.js, which Web3.py is derrived from.  So let's get started with a python terminal: ```python3```
+[Back To Top](#table-of-contents)
 
 #### Import the Libraries
 
 ```
 >>> from web3 import Web3, HTTPProvider
 ```
+[Back To Top](#table-of-contents)
 
 #### Set Ganache-CLI as the Ethereum Blockchain Provider
 
 ```
 >>> web3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
 ```
+[Back To Top](#table-of-contents)
 
 #### Interacting with Ganache-GLI through Python with Web3.py
 
@@ -105,6 +110,7 @@ Get a list of current Ethereum Addresses:
 Notice that this lists the ethereum addresses started by ganache-cli. The call from python to Web3.py can be observed from the ganache-cli terminal as well.
 
 ![Python Call can be seen in Ganache-cli](/media/ganache-cli-02.png)
+[Back To Top](#table-of-contents)
 
 #### Get Gas Price
 
@@ -121,6 +127,7 @@ Notice that this lists the ethereum addresses started by ganache-cli. The call f
 100000000000000000000
 ```
 ![Get Ethereum Address Balances from address](/media/ganache-cli-04.png)
+[Back To Top](#table-of-contents)
 
 #### Create New Account
 ```
@@ -135,6 +142,7 @@ A new address is now created.  Check the balance on this account:
 0
 ```
 The address should be zero, unlike the other accounts since this is newly created.
+[Back To Top](#table-of-contents)
 
 #### Send ETH to New Account
 
@@ -147,17 +155,20 @@ HexBytes('0xdd1ca7444da4498e168954669e3f1381f0a3843c40adaaa8e55d32e07c7c5985')
 The response is the transaction hash registered on the blockchain.  Here is the output of the transaction in ganache-cli:
 
 ![Send ETH to new account](/media/ganache-cli-05.png)
+[Back To Top](#table-of-contents)
 
 #### More Web3.py Info
 
 For more information and documentation on web3.py:
 https://web3py.readthedocs.io/en/stable/index.html
+[Back To Top](#table-of-contents)
 
 ## Explaining Solidity and Smart Contracts
 
 Smart Contracts (simply put) are small computer programs.  These programs exist on a common blockchain. When triggered, they are self-executing. The terms of the contract between the contract owner and the recipient are expressed as code. Since Smart Contracts exist on a decentralized blockchain, they permit trusted transactions/agreements to be carried out without any need for a central authority, legal system, or enforcement mechanism.  However, due to the structure and security of this platform, there is little need for intermediaries.
 
 This makes the transactions of a Smart Contract transparent, trustless, traceable, irreversable, and globally redundant.
+[Back To Top](#table-of-contents)
 
 ### Solidity and Solc
 
@@ -166,18 +177,22 @@ This makes the transactions of a Smart Contract transparent, trustless, traceabl
 Solidity is statically typed, contract-oriented, and a high-level language for implementing smart contracts on the Ethereum platform.
 
 Ethereum is by far the most popular platform for Solidity, but other platforms use Solidity, such as:  Hyperledger, Ethereum Classic, Monax, CounterParty (on Bitcoin), and even SWIFT has a proof-of-concept built using Solidity.
+[Back To Top](#table-of-contents)
 
 #### LLLC
 
 LLLC, the Lovely Little Language Compiler. This binary will translate Solidity Contracts into a Ethereum-Blockchain executable format.  
+[Back To Top](#table-of-contents)
 
 #### Solc
 
 Solc is a binary and commandline interface for the Solidity Compiler (LLLC). 
+[Back To Top](#table-of-contents)
 
 #### Py-Solc Library
 
 Python wrapper around the solc Solidity compiler. Here is an integral part of building a python-based dApp. 
+[Back To Top](#table-of-contents)
 
 ### Building A Contract
 
@@ -202,6 +217,7 @@ contract StorageContract {
     }
 }
 ```
+[Back To Top](#table-of-contents)
 
 #### Learning More About Solidity
 
@@ -209,12 +225,14 @@ There are plenty of online resources for learning more about Solidity.  For expl
 * Solidity Documentation: https://solidity.readthedocs.io/en/v0.4.24/
 * OpenZeppelin: https://github.com/OpenZeppelin/openzeppelin-contracts
 * BlockGeeks: https://github.com/blockgeeks/workshop/tree/master/src/contracts
+[Back To Top](#table-of-contents)
 
 ### Deploying Contracts
 
 There are two ways to deploy a contract with Python.  It can be done with the Solidity Contract code written directly inline in a Python application.  It can also be compiled from a ```.sol``` Solidity Contract file.
 
 This section specifically breaks down deploycontract.py in this repository.
+[Back To Top](#table-of-contents)
 
 #### Deploying with Inline Solidity Code
 
@@ -249,6 +267,7 @@ Compile the contract:
 ```
 compiled_sol = compile_source(contract_source_code) # Compiled source code
 ```
+[Back To Top](#table-of-contents)
 
 #### Deploying with a .sol Solidity Contract
 
@@ -278,6 +297,7 @@ Provide the path to the contract and path:
 contract_source_path = '/contract/'
 compiled_sol = compile_source_file('storage.sol')
 ```
+[Back To Top](#table-of-contents)
 
 #### Building the Contract Interface
 
@@ -302,11 +322,15 @@ assetregister = web3.eth.contract(
     abi=smartcontract_interface['abi'],
 )
 ```
+[Back To Top](#table-of-contents)
 
 ## Using Flask to Build a dApp
 
+[Back To Top](#table-of-contents)
 
 ### Setting up the Flask environment
+
+[Back To Top](#table-of-contents)
 
 ```
 # OS/APP Requirements
@@ -329,6 +353,7 @@ from hexbytes import HexBytes
 from web3.auto import w3
 from deploycontract import assetregister, StorageContract
 ```
+[Back To Top](#table-of-contents)
 
 ### Flask Application
 
@@ -357,11 +382,13 @@ class RegisterForm(FlaskForm):
         FileAllowed(['jpg','jpeg','png'], 'Images only!')
     ])
 ```
+[Back To Top](#table-of-contents)
 
 #### Application Routing - dapp.py
 
 ```dapp.py``` is the file that runs the Flask server for this demonstration. It provides the routing for our web application.  ```dapp.py``` also inherits the functions  of ```deploycontract.py```, which is the interface with the smart contract's functions. This is what provides the web browser interface between your dApp and the end user.
 
+[Back To Top](#table-of-contents)
 
 ##### GET - / 
 
@@ -370,6 +397,7 @@ class RegisterForm(FlaskForm):
 def home():
     return render_template('home.html', contractaddress=assetregister.address)
 ````
+[Back To Top](#table-of-contents)
 
 ##### GET - /register
 
@@ -385,6 +413,7 @@ def register():
         form.ethaddress.choices += [(n, chooseaccount)]
     return render_template('register.html', registerform=form, contractaddress=assetregister.address)
 ```
+[Back To Top](#table-of-contents)
 
 ##### POST - /registered
 
@@ -408,6 +437,7 @@ def registered():
         contractaddress=assetregister.address
     )
 ```
+[Back To Top](#table-of-contents)
 
 ### Templates
 
@@ -431,6 +461,7 @@ It will display application information between these two tags in this file:
 ```
 {% block content %}{% endblock %}
 ```
+[Back To Top](#table-of-contents)
 
 #### home.html
 
@@ -456,6 +487,8 @@ The template's content is then imported in between the block content tags:
 {% endblock content %}
 ``` 
 There is nothing interesting happening here. This is merely demonstrating how to insert some html content inbetween the ```{% block content %}``` and ```{% endblock content%}``` in ```index.html```.
+[Back To Top](#table-of-contents)
+
 
 #### register.html
 
@@ -484,6 +517,7 @@ The same thing happens for bringing up the serial number form field. This is a t
 ```
 
 These are the two values that will be passed to the smart contract.
+[Back To Top](#table-of-contents)
 
 #### registered.html
 
@@ -493,3 +527,5 @@ These are the two values that will be passed to the smart contract.
 Ethereum Address: {{ reg_ethaddress }} <br>
 Serial Number: {{ reg_serial }} <br>
 ```
+[Back To Top](#table-of-contents)
+
