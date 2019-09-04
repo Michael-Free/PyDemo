@@ -39,7 +39,11 @@
   * [GET - /](#get---)
   * [GET - /register](#get---register)
   * [POST - /registered](#post---registered)
-  
+  * [Templates](#templates)
+    * [index.html](#indexhtml)
+    * [home.html](#homehtml)
+    * [register.html](#registerhtml)
+    * [registered.html](#registeredhtml)
   
 
 ## Install Requirements
