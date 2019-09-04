@@ -21,7 +21,7 @@
     * [More Web3.py Info](#more-web3py-info)
 * [Explaining Solidity and Smart Contracts](#explaining-solidity-and-smart-contracts)
   * [Solidity and Solc](#solidity-and-solc)
-    * [Solidity](#solidity)
+    * [Solc](#solidity)
     * [LLLC](#lllc)
     * [Solc](#solc)
     * [Py-Solc Library](#py-solc-library)
@@ -32,12 +32,16 @@
     * [Deploying with Inline Solidity Code](#deploying-with-inline-solidity-code)
     * [Deploying with a .sol Solidity Contract](#deploying-with-a-sol-solidity-contract)
     * [Building The Contract Interface](#building-the-contract-interface)
+<<<<<<< HEAD
 * [Using Flask to Build a dApp](#using-flask-to-build-a-dapp)
   * [Setting Up the Flask Environment](#setting-up-the-flask-environment)
   * [deploycontract.py]()
   * [Flask Application](#flask-application)
     * []()
 
+=======
+)
+>>>>>>> parent of 1156bff... update TOC
 ## Install Requirements
 
 System requirements on Ubuntu Server 18.04 LTS
