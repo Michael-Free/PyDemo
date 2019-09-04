@@ -36,8 +36,7 @@
   * [Setting Up the Flask Environment](#setting-up-the-flask-environment)
   * [deploycontract.py]()
   * [Flask Application](#flask-application)
-    * Basic Wrapping
-     
+    * []()
 
 ## Install Requirements
 
@@ -65,7 +64,31 @@ sudo pip3 install -r requirements.txt
 [Back To Top](#table-of-contents)
 
 ## Getting Started
-
+​
+384
+#### Basic Wrapping in 
+385
+​
+386
+```
+387
+app = Flask(__name__)
+388
+bootstrap = Bootstrap(app)
+389
+app.config['SECRET_KEY'] ='TempSecretKey'
+390
+```
+391
+​
+392
+```
+393
+if __name__ == '__main__':
+394
+    app.run(debug=True, host='0.0.0.0', port=5000)
+395
+```
 ### Starting Ganache-CLI
 
 Ganache is an ethereum blockchain emulator. it allows developers to make calls to an ethereum-like blockchain, without having to run a node.
@@ -237,7 +260,31 @@ contract StorageContract {
 ```
 
 [Back To Top](#table-of-contents)
-
+​
+384
+#### Basic Wrapping in 
+385
+​
+386
+```
+387
+app = Flask(__name__)
+388
+bootstrap = Bootstrap(app)
+389
+app.config['SECRET_KEY'] ='TempSecretKey'
+390
+```
+391
+​
+392
+```
+393
+if __name__ == '__main__':
+394
+    app.run(debug=True, host='0.0.0.0', port=5000)
+395
+```
 #### Learning More About Solidity
 
 There are plenty of online resources for learning more about Solidity.  For exploring more, take a look at some of the provided documentation and sample contract-implementations:
@@ -251,7 +298,31 @@ There are plenty of online resources for learning more about Solidity.  For expl
 
 There are two ways to deploy a contract with Python.  It can be done with the Solidity Contract code written directly inline in a Python application.  It can also be compiled from a ```.sol``` Solidity Contract file.
 
-This section specifically breaks down deploycontract.py in this repository.
+This section specifically breaks down deploycontract​
+384
+#### Basic Wrapping in 
+385
+​
+386
+```
+387
+app = Flask(__name__)
+388
+bootstrap = Bootstrap(app)
+389
+app.config['SECRET_KEY'] ='TempSecretKey'
+390
+```
+391
+​
+392
+```
+393
+if __name__ == '__main__':
+394
+    app.run(debug=True, host='0.0.0.0', port=5000)
+395
+```.py in this repository.
 
 [Back To Top](#table-of-contents)
 
@@ -283,7 +354,31 @@ contract StorageContract {
 '''
 ```
 
-Compile the contract:
+Compile the contract:​
+384
+#### Basic Wrapping in 
+385
+​
+386
+```
+387
+app = Flask(__name__)
+388
+bootstrap = Bootstrap(app)
+389
+app.config['SECRET_KEY'] ='TempSecretKey'
+390
+```
+391
+​
+392
+```
+393
+if __name__ == '__main__':
+394
+    app.run(debug=True, host='0.0.0.0', port=5000)
+395
+```
 
 ```
 compiled_sol = compile_source(contract_source_code) # Compiled source code
@@ -354,20 +449,21 @@ assetregister = web3.eth.contract(
 
 ### Setting up the Flask environment
 
-[Back To Top](#table-of-contents)
+In order to run the Flask application, we need setup some environment variables to run the Flask Webserver:
 
 ```
-# OS/APP Requirements
-import json
-import os.path
+export FLASK_APP="dapp.py"
+export FLASK_ENV=development
+export FLASK_DEBUG=0
+```
 
+###
+```
 # Flask requirements
 from flask import Flask, render_template, jsonify, request, flash, redirect, url_for
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SelectField, validators
-from flask_wtf.file import FileField, FileRequired, FileAllowed
-from werkzeug import secure_filename
 from wtforms.validators import InputRequired
 ```
 
@@ -377,21 +473,7 @@ from hexbytes import HexBytes
 from web3.auto import w3
 from deploycontract import assetregister, StorageContract
 ```
-
 [Back To Top](#table-of-contents)
-
-### Flask Application
-
-```
-app = Flask(__name__)
-bootstrap = Bootstrap(app)
-app.config['SECRET_KEY'] ='TempSecretKey'
-```
-EOF
-```
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
-```
 
 #### Create Forms for Smart Contract Functions
 
