@@ -32,20 +32,12 @@
     * [Deploying with Inline Solidity Code](#deploying-with-inline-solidity-code)
     * [Deploying with a .sol Solidity Contract](#deploying-with-a-sol-solidity-contract)
     * [Building The Contract Interface](#building-the-contract-interface)
-<<<<<<< HEAD
-<<<<<<< HEAD
 * [Using Flask to Build a dApp](#using-flask-to-build-a-dapp)
   * [Setting Up the Flask Environment](#setting-up-the-flask-environment)
   * [deploycontract.py]()
   * [Flask Application](#flask-application)
     * []()
 
-=======
-)
->>>>>>> parent of 1156bff... update TOC
-=======
-)
->>>>>>> parent of 1156bff... update TOC
 ## Install Requirements
 
 System requirements on Ubuntu Server 18.04 LTS
@@ -72,31 +64,7 @@ sudo pip3 install -r requirements.txt
 [Back To Top](#table-of-contents)
 
 ## Getting Started
-​
-384
-#### Basic Wrapping in 
-385
-​
-386
-```
-387
-app = Flask(__name__)
-388
-bootstrap = Bootstrap(app)
-389
-app.config['SECRET_KEY'] ='TempSecretKey'
-390
-```
-391
-​
-392
-```
-393
-if __name__ == '__main__':
-394
-    app.run(debug=True, host='0.0.0.0', port=5000)
-395
-```
+
 ### Starting Ganache-CLI
 
 Ganache is an ethereum blockchain emulator. it allows developers to make calls to an ethereum-like blockchain, without having to run a node.
@@ -268,31 +236,7 @@ contract StorageContract {
 ```
 
 [Back To Top](#table-of-contents)
-​
-384
-#### Basic Wrapping in 
-385
-​
-386
-```
-387
-app = Flask(__name__)
-388
-bootstrap = Bootstrap(app)
-389
-app.config['SECRET_KEY'] ='TempSecretKey'
-390
-```
-391
-​
-392
-```
-393
-if __name__ == '__main__':
-394
-    app.run(debug=True, host='0.0.0.0', port=5000)
-395
-```
+
 #### Learning More About Solidity
 
 There are plenty of online resources for learning more about Solidity.  For exploring more, take a look at some of the provided documentation and sample contract-implementations:
@@ -308,31 +252,7 @@ There are two ways to deploy a contract with Python.  It can be done with the So
 
 This section specifically breaks down deploycontract​
 384
-#### Basic Wrapping in 
-385
-​
-386
-```
-387
-app = Flask(__name__)
-388
-bootstrap = Bootstrap(app)
-389
-app.config['SECRET_KEY'] ='TempSecretKey'
-390
-```
-391
-​
-392
-```
-393
-if __name__ == '__main__':
-394
-    app.run(debug=True, host='0.0.0.0', port=5000)
-395
-```.py in this repository.
 
-[Back To Top](#table-of-contents)
 
 #### Deploying with Inline Solidity Code
 
@@ -362,32 +282,7 @@ contract StorageContract {
 '''
 ```
 
-Compile the contract:​
-384
-#### Basic Wrapping in 
-385
-​
-386
-```
-387
-app = Flask(__name__)
-388
-bootstrap = Bootstrap(app)
-389
-app.config['SECRET_KEY'] ='TempSecretKey'
-390
-```
-391
-​
-392
-```
-393
-if __name__ == '__main__':
-394
-    app.run(debug=True, host='0.0.0.0', port=5000)
-395
-```
-
+Compile the contract:
 ```
 compiled_sol = compile_source(contract_source_code) # Compiled source code
 ```
@@ -485,17 +380,11 @@ from deploycontract import assetregister, StorageContract
 
 #### Create Forms for Smart Contract Functions
 
-##### Register
-
+##### Register Form
 ```
-# Forms to fill out for the app
 class RegisterForm(FlaskForm):
     ethaddress = SelectField('Ethereum Address', choices=[])
     serialnumber = StringField('Serial Number', [InputRequired()])
-    photo = FileField('Photo', validators=[
-        FileRequired(),
-        FileAllowed(['jpg','jpeg','png'], 'Images only!')
-    ])
 ```
 
 [Back To Top](#table-of-contents)
