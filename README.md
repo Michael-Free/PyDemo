@@ -352,15 +352,17 @@ assetregister = web3.eth.contract(
 
 ### Setting up the Flask environment
 
-In order to run the Flask application, we need setup some environment variables to run the Flask Webserver:
+In order to run the Flask application, some environment variables to run the Flask Webserver:
 
 ```
 export FLASK_APP="dapp.py"
 export FLASK_ENV=development
 export FLASK_DEBUG=0
 ```
+```dapp.py``` is going to be where the dApp is built.
 
-###
+### dapp.py
+
 ```
 # Flask requirements
 from flask import Flask, render_template, jsonify, request, flash, redirect, url_for
@@ -376,6 +378,13 @@ from hexbytes import HexBytes
 from web3.auto import w3
 from deploycontract import assetregister, StorageContract
 ```
+
+The most important thing to notice from here is that ```deploycontract.py``` is imported as a python library.  More specifically 2 functions are imported:
+
+* ```assetregister``` - 
+* ```StorageContract``` - 
+
+
 [Back To Top](#table-of-contents)
 
 #### Create Forms for Smart Contract Functions
