@@ -566,8 +566,8 @@ reg_txdata= tx_data,
 These can all be called in to the ```registered.html``` template with double curly brackets in the template. i.e.
 
 ```
-Transaction Hash: {{ reg_txhash }}
-Transaction Data: {{ reg_txdata }}
+Transaction Hash: {{ reg_txhash }} <br>
+Transaction Data: {{ reg_txdata }} <br>
 ```
 
 [Back To Top](#table-of-contents)
