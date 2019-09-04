@@ -541,6 +541,7 @@ These are the two values that will be passed to the smart contract.
 
 #### registered.html
 
+This template is the one used for the ``POST`` request from ```register.html``` 
 
 ```
 <br>REGISTERED</p>
