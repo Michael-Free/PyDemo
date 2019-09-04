@@ -535,7 +535,7 @@ The same thing happens for bringing up the serial number form field. This is a t
 <td>{{ registerform.serialnumber }}</td>
 ```
 
-These are the two values that will be passed to the smart contract.
+These are the two values that will be passed to the smart contract. The Ethereum Address and the Serial Number (passed as a text string).
 
 [Back To Top](#table-of-contents)
 
