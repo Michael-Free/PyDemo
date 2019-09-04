@@ -513,7 +513,8 @@ There is nothing interesting happening here. This is merely demonstrating how to
 
 This template provides the user input for the dApp. This is the template for our GET function.
 
-Once the form is submitted, it will call the ```/registered``` route and pass that information to that function, and display the ```registered.html``` template in the next section. This call to the template and route is represented by ```{{ url_for('registered') }}``` in the html form tags:
+Once the form is submitted, it will call the ```/registered``` route and pass that information to that function, and display the ```
+``` template in the next section. This call to the template and route is represented by ```{{ url_for('registered') }}``` in the html form tags:
 
 ```
 <form method="POST" action="{{ url_for('registered') }}" enctype="multipart/form-data">
@@ -541,12 +542,32 @@ These are the two values that will be passed to the smart contract. The Ethereum
 
 #### registered.html
 
-This template is the one used for the ``POST`` request from ```register.html``` 
+This template is the one used for the ``POST`` request from ```register.html```.  Two variables are passed from ```dapp.py```
+to this particular template. 
+
+* ```reg_ethaddress``` displays the ethereum address used to make the transaction to the smart contract address. 
+
+* ```reg_serial``` displays the serial number passed from the html form to the smart contract.
 
 ```
 <br>REGISTERED</p>
 Ethereum Address: {{ reg_ethaddress }} <br>
 Serial Number: {{ reg_serial }} <br>
+```
+
+Within ```dapp.py```, not all variables are passed to this template. 
+
+```
+reg_receipt=w3.eth.getTransactionReceipt(registered),
+reg_txhash= tx_hash,
+reg_txdata= tx_data,
+```
+
+These can all be called in to the ```registered.html``` template with double curly brackets in the template. i.e.
+
+```
+Transaction Hash: {{ reg_txhash }}
+Transaction Data: {{ reg_txdata }}
 ```
 
 [Back To Top](#table-of-contents)
