@@ -34,9 +34,13 @@
     * [Building The Contract Interface](#building-the-contract-interface)
 * [Using Flask to Build a dApp](#using-flask-to-build-a-dapp)
   * [Setting Up the Flask Environment](#setting-up-the-flask-environment)
-  * [deploycontract.py]()
-  * [Flask Application](#flask-application)
-    * []()
+  * [dapp.py](#dapppy)
+  * [Application Routing - dapp.py](#application-routing---dapppy)
+  * [GET - /](#get---)
+  * [GET - /register](#get---register)
+  * [POST - /registered](#post---registered)
+  
+  
 
 ## Install Requirements
 
