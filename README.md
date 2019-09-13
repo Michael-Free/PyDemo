@@ -34,12 +34,16 @@
     * [Building The Contract Interface](#building-the-contract-interface)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 * [Using Flask to Build a dApp](#using-flask-to-build-a-dapp)
   * [Setting Up the Flask Environment](#setting-up-the-flask-environment)
   * [deploycontract.py]()
   * [Flask Application](#flask-application)
     * []()
 
+=======
+)
+>>>>>>> parent of 1156bff... update TOC
 =======
 )
 >>>>>>> parent of 1156bff... update TOC
