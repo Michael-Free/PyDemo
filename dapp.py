@@ -68,7 +68,7 @@ def registered():
     # Get the transaction hash 
     tx_hash = HexBytes.hex(tx['hash'])
     # Get the data sent from the transaction
-    tx_data = HexBytes.hex(tx['input'])
+    tx_data = HexBytes(tx['input'])
     # return the registered.html template
     return render_template(
         'registered.html',
