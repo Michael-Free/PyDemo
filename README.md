@@ -32,24 +32,19 @@
     * [Deploying with Inline Solidity Code](#deploying-with-inline-solidity-code)
     * [Deploying with a .sol Solidity Contract](#deploying-with-a-sol-solidity-contract)
     * [Building The Contract Interface](#building-the-contract-interface)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 * [Using Flask to Build a dApp](#using-flask-to-build-a-dapp)
   * [Setting Up the Flask Environment](#setting-up-the-flask-environment)
-  * [deploycontract.py]()
-  * [Flask Application](#flask-application)
-    * []()
-
-=======
-)
->>>>>>> parent of 1156bff... update TOC
-=======
-)
->>>>>>> parent of 1156bff... update TOC
-=======
-)
->>>>>>> parent of 1156bff... update TOC
+    * [dapp.py](#dapppy)
+    * [Application Routing - dapp.py](#application-routing---dapppy)
+    * [GET - /](#get---)
+    * [GET - /register](#get---register)
+    * [POST - /registered](#post---registered)
+  * [Templates](#templates)
+    * [index.html](#indexhtml)
+    * [home.html](#homehtml)
+    * [register.html](#registerhtml)
+    * [registered.html](#registeredhtml)
+  
 ## Install Requirements
 
 System requirements on Ubuntu Server 18.04 LTS
@@ -76,31 +71,7 @@ sudo pip3 install -r requirements.txt
 [Back To Top](#table-of-contents)
 
 ## Getting Started
-​
-384
-#### Basic Wrapping in 
-385
-​
-386
-```
-387
-app = Flask(__name__)
-388
-bootstrap = Bootstrap(app)
-389
-app.config['SECRET_KEY'] ='TempSecretKey'
-390
-```
-391
-​
-392
-```
-393
-if __name__ == '__main__':
-394
-    app.run(debug=True, host='0.0.0.0', port=5000)
-395
-```
+
 ### Starting Ganache-CLI
 
 Ganache is an ethereum blockchain emulator. it allows developers to make calls to an ethereum-like blockchain, without having to run a node.
@@ -197,7 +168,9 @@ The address should be zero, unlike the other accounts since this is newly create
 Send some ETH to the new account:
 
 ```
->>> web3.eth.sendTransaction({'to': '0xE972Dc8a9a0701A98dB8466FC555Bc10150Cd977', 'from': web3.eth.coinbase, 'value': 1000000})
+>>> web3.eth.sendTransaction({'to': '0xE972Dc8a9a0701A98dB8466FC555Bc10150Cd977', 
+                                    'from': web3.eth.coinbase,
+                                    'value': 1000000})
 HexBytes('0xdd1ca7444da4498e168954669e3f1381f0a3843c40adaaa8e55d32e07c7c5985')
 ```
 The response is the transaction hash registered on the blockchain.  Here is the output of the transaction in ganache-cli:
@@ -272,31 +245,7 @@ contract StorageContract {
 ```
 
 [Back To Top](#table-of-contents)
-​
-384
-#### Basic Wrapping in 
-385
-​
-386
-```
-387
-app = Flask(__name__)
-388
-bootstrap = Bootstrap(app)
-389
-app.config['SECRET_KEY'] ='TempSecretKey'
-390
-```
-391
-​
-392
-```
-393
-if __name__ == '__main__':
-394
-    app.run(debug=True, host='0.0.0.0', port=5000)
-395
-```
+
 #### Learning More About Solidity
 
 There are plenty of online resources for learning more about Solidity.  For exploring more, take a look at some of the provided documentation and sample contract-implementations:
@@ -312,31 +261,7 @@ There are two ways to deploy a contract with Python.  It can be done with the So
 
 This section specifically breaks down deploycontract​
 384
-#### Basic Wrapping in 
-385
-​
-386
-```
-387
-app = Flask(__name__)
-388
-bootstrap = Bootstrap(app)
-389
-app.config['SECRET_KEY'] ='TempSecretKey'
-390
-```
-391
-​
-392
-```
-393
-if __name__ == '__main__':
-394
-    app.run(debug=True, host='0.0.0.0', port=5000)
-395
-```.py in this repository.
 
-[Back To Top](#table-of-contents)
 
 #### Deploying with Inline Solidity Code
 
@@ -366,32 +291,7 @@ contract StorageContract {
 '''
 ```
 
-Compile the contract:​
-384
-#### Basic Wrapping in 
-385
-​
-386
-```
-387
-app = Flask(__name__)
-388
-bootstrap = Bootstrap(app)
-389
-app.config['SECRET_KEY'] ='TempSecretKey'
-390
-```
-391
-​
-392
-```
-393
-if __name__ == '__main__':
-394
-    app.run(debug=True, host='0.0.0.0', port=5000)
-395
-```
-
+Compile the contract:
 ```
 compiled_sol = compile_source(contract_source_code) # Compiled source code
 ```
@@ -461,15 +361,17 @@ assetregister = web3.eth.contract(
 
 ### Setting up the Flask environment
 
-In order to run the Flask application, we need setup some environment variables to run the Flask Webserver:
+In order to run the Flask application, some environment variables to run the Flask Webserver:
 
 ```
 export FLASK_APP="dapp.py"
 export FLASK_ENV=development
 export FLASK_DEBUG=0
 ```
+```dapp.py``` is going to be where the dApp is built.
 
-###
+### dapp.py
+
 ```
 # Flask requirements
 from flask import Flask, render_template, jsonify, request, flash, redirect, url_for
@@ -485,21 +387,22 @@ from hexbytes import HexBytes
 from web3.auto import w3
 from deploycontract import assetregister, StorageContract
 ```
+
+The most important thing to notice from here is that ```deploycontract.py``` is imported as a python library.  More specifically 2 functions are imported:
+
+* ```assetregister``` - 
+* ```StorageContract``` - 
+
+
 [Back To Top](#table-of-contents)
 
 #### Create Forms for Smart Contract Functions
 
-##### Register
-
+##### Register Form
 ```
-# Forms to fill out for the app
 class RegisterForm(FlaskForm):
     ethaddress = SelectField('Ethereum Address', choices=[])
     serialnumber = StringField('Serial Number', [InputRequired()])
-    photo = FileField('Photo', validators=[
-        FileRequired(),
-        FileAllowed(['jpg','jpeg','png'], 'Images only!')
-    ])
 ```
 
 [Back To Top](#table-of-contents)
@@ -619,7 +522,8 @@ There is nothing interesting happening here. This is merely demonstrating how to
 
 This template provides the user input for the dApp. This is the template for our GET function.
 
-Once the form is submitted, it will call the ```/registered``` route and pass that information to that function, and display the ```registered.html``` template in the next section. This call to the template and route is represented by ```{{ url_for('registered') }}``` in the html form tags:
+Once the form is submitted, it will call the ```/registered``` route and pass that information to that function, and display the ```
+``` template in the next section. This call to the template and route is represented by ```{{ url_for('registered') }}``` in the html form tags:
 
 ```
 <form method="POST" action="{{ url_for('registered') }}" enctype="multipart/form-data">
@@ -641,17 +545,38 @@ The same thing happens for bringing up the serial number form field. This is a t
 <td>{{ registerform.serialnumber }}</td>
 ```
 
-These are the two values that will be passed to the smart contract.
+These are the two values that will be passed to the smart contract. The Ethereum Address and the Serial Number (passed as a text string).
 
 [Back To Top](#table-of-contents)
 
 #### registered.html
 
+This template is the one used for the ``POST`` request from ```register.html```.  Two variables are passed from ```dapp.py```
+to this particular template. 
+
+* ```reg_ethaddress``` displays the ethereum address used to make the transaction to the smart contract address. 
+
+* ```reg_serial``` displays the serial number passed from the html form to the smart contract.
 
 ```
 <br>REGISTERED</p>
 Ethereum Address: {{ reg_ethaddress }} <br>
 Serial Number: {{ reg_serial }} <br>
+```
+
+Within ```dapp.py```, not all variables are passed to this template. 
+
+```
+reg_receipt=w3.eth.getTransactionReceipt(registered),
+reg_txhash= tx_hash,
+reg_txdata= tx_data,
+```
+
+These can all be called in to the ```registered.html``` template with double curly brackets in the template. i.e.
+
+```
+Transaction Hash: {{ reg_txhash }} <br>
+Transaction Data: {{ reg_txdata }} <br>
 ```
 
 [Back To Top](#table-of-contents)
