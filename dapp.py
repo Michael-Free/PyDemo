@@ -1,4 +1,3 @@
-
 # Flask requirements
 from flask import Flask, render_template, jsonify, request, flash, redirect, url_for
 from flask_bootstrap import Bootstrap
@@ -67,8 +66,13 @@ def registered():
     tx =  w3.eth.getTransaction(registered)
     # Get the transaction hash 
     tx_hash = HexBytes.hex(tx['hash'])
+    print('TRANSACTION HASH:')
+    print(str(tx_hash))
+    print()
     # Get the data sent from the transaction
     tx_data = HexBytes(tx['input'])
+    print('TRANSACTION DATA:')
+    print(w3.toHex(tx_data))
     # return the registered.html template
     return render_template(
         'registered.html',
