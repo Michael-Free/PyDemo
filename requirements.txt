@@ -13,7 +13,6 @@ configobj==5.0.6
 constantly==15.1.0
 cryptography==2.1.4
 cytoolz==0.10.0
-distro-info==0.18
 dominate==2.3.5
 eth-abi==2.0.0a1
 eth-account==0.3.0
