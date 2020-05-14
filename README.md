@@ -65,6 +65,8 @@ Install Ganache - the test ethereum blockchain and pip3 requirements
 
 ```
 sudo npm install -g ganache-cli
+git clone https://github.com/Michael-Free/PyDemo.git
+cd PyDemo
 sudo pip3 install -r requirements.txt
 ```
 
