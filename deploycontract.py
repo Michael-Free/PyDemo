@@ -1,5 +1,5 @@
 """
-Deploy Solidity Contract
+Deploy Solidity Contract to Ganache-CLI
 """
 # Import required libraries for compiling and deploying a smart contract
 from solc import compile_source
