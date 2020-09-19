@@ -1,13 +1,16 @@
+"""
+Deploy Solidity Contract
+"""
 # Import required libraries for compiling and deploying a smart contract
 from solc import compile_source
 from web3 import Web3, HTTPProvider
-from web3.contract import ConciseContract
+#from web3.contract import ConciseContract
 
 # set the provider (interface) to be used for web3 (ganache-cli)
-web3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
+WEB3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
 
 # provide the smart contract
-contract_source_code = '''
+CONTRACT_SOURCE_CODE = '''
 pragma solidity ^0.4.21;
 contract StorageContract {
     /* Define variable owner of the type address */
@@ -29,22 +32,22 @@ contract StorageContract {
 }
 '''
 # compile the solidity source code
-compiled_sol = compile_source(contract_source_code)
+COMPILED_SOL = compile_source(CONTRACT_SOURCE_CODE)
 # create an interface for the compiled contracct
-smartcontract_interface = compiled_sol['<stdin>:StorageContract']
+SMARTCONTRACT_INTERFACE = COMPILED_SOL['<stdin>:StorageContract']
 #
-StorageContract = web3.eth.contract(
-    abi=smartcontract_interface['abi'],
-    bytecode=smartcontract_interface['bin'])
+StorageContract = WEB3.eth.contract(
+    abi=SMARTCONTRACT_INTERFACE['abi'],
+    bytecode=SMARTCONTRACT_INTERFACE['bin'])
 # send eth from which account?
-web3.eth.defaultAccount = web3.eth.accounts[0]
+WEB3.eth.defaultAccount = WEB3.eth.accounts[0]
 # get the transaction hash
-tx_hash = StorageContract.constructor().transact()
+TX_HASH = StorageContract.constructor().transact()
 # get the transaction receipt and get information about the contract deployment
-tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
+TX_RECEIPT = WEB3.eth.waitForTransactionReceipt(TX_HASH)
 # create an object for the smart contract to be called and interacted with
-assetregister = web3.eth.contract(
+ASSETREGISTER = WEB3.eth.contract(
     # get the contract address from the transaction address
-    address=tx_receipt.contractAddress,
-    abi=smartcontract_interface['abi'],
+    address=TX_RECEIPT.contractAddress,
+    abi=SMARTCONTRACT_INTERFACE['abi'],
 )
