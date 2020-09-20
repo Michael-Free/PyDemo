@@ -25,8 +25,8 @@ class RegisterForm(FlaskForm):
     'Ethereum Address' is the label we'll give to this drop down field
     # A text input field for the form.
     """
-    ETHADDRESS = SelectField('Ethereum Address', choices=[])
-    SERIALNUMBER = StringField('Serial Number', [InputRequired()])
+    ethereum_address = SelectField('Ethereum Address', choices=[])
+    some_string = StringField('Some String', [InputRequired()])
 
 # Application routes
 @APP.route("/")
@@ -51,11 +51,11 @@ def register():
     # pass the contract address to the register.html template
     """
     form = RegisterForm()
-    form.ETHADDRESS.choices = []
+    form.ethereum_address.choices = []
     minus_one = -1
     for chooseaccount in w3.personal.listAccounts:
         minus_one = minus_one+1
-        form.ETHADDRESS.choices += [(minus_one, chooseaccount)]
+        form.ethereum_address.choices += [(minus_one, chooseaccount)]
     return render_template(
         'register.html',
         registerform=form,
@@ -69,14 +69,15 @@ def registered():
     provided previously.
     """
     call_contract_function = ASSETREGISTER.functions.setRegistration(
-        request.form['SERIALNUMBER'],
-        w3.eth.accounts[int(request.form['ETHADDRESS'])]).transact() # create the transaction
+        request.form['some_string'],
+        w3.eth.accounts[int(request.form['ethereum_address'])]).transact() # create the transaction
     transaction_info = w3.eth.getTransaction(call_contract_function)
     return render_template(
         'registered.html',
-        reg_ethaddress=w3.eth.accounts[int(request.form['ETHADDRESS'])],
-        reg_serial=request.form['SERIALNUMBER'],
-        reg_accountnumber=request.form['ETHADDRESS'],
+        # pass these variables to the html template
+        reg_ethaddress=w3.eth.accounts[int(request.form['ethereum_address'])],
+        reg_serial=request.form['some_string'],
+        reg_accountnumber=request.form['ethereum_address'],
         reg_receipt=w3.eth.getTransactionReceipt(call_contract_function),
         reg_txhash=HexBytes.hex(transaction_info['hash']),
         reg_txdata=HexBytes(transaction_info['input']),
