@@ -4,7 +4,6 @@ Deploy Solidity Contract to Ganache-CLI
 # Import required libraries for compiling and deploying a smart contract
 from solc import compile_source
 from web3 import Web3, HTTPProvider
-#from web3.contract import ConciseContract
 
 # set the provider (interface) to be used for web3 (ganache-cli)
 WEB3 = Web3(HTTPProvider('http://127.0.0.1:8545'))
