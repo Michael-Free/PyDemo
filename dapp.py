@@ -52,10 +52,10 @@ def register():
     """
     form = RegisterForm()
     form.ETHADDRESS.choices = []
-    n = -1
+    minus_one = -1
     for chooseaccount in w3.personal.listAccounts:
-        n = n+1
-        form.ETHADDRESS.choices += [(n, chooseaccount)]
+        minus_one = minus_one+1
+        form.ETHADDRESS.choices += [(minus_one, chooseaccount)]
     return render_template(
         'register.html',
         registerform=form,
@@ -65,39 +65,21 @@ def register():
 @APP.route("/registered", methods=['POST'])
 def registered():
     """
-    # calling the setRegistration function in the smart contract
-    # Pass the serial number from the registration form to the contract function
-    # Pass the chosen ethereum address to the smart contract and use that to send eth from
-    # Get the transaction
-    # Get the transaction hash
-    # Get the data sent from the transaction
-    # return the registered.html template
-    # pass the ethereum address chosen in /register to the registered.html template
-    # pass the serial number used in /register to the registered.html template
-    # pass the transaction receipt on to the template
-    # pass the transaction hash to the template
-    # Pass the transaction data (inputs) to the template
-    # Pass the contract address to the template
+    Calling a contract function and interact with it using the data from the input
+    provided previously.
     """
-    REGISTERED = ASSETREGISTER.functions.setRegistration(
+    call_contract_function = ASSETREGISTER.functions.setRegistration(
         request.form['SERIALNUMBER'],
         w3.eth.accounts[int(request.form['ETHADDRESS'])]).transact() # create the transaction
-    TX = w3.eth.getTransaction(REGISTERED)
-    TX_HASH = HexBytes.hex(TX['hash'])
-    print('TRANSACTION HASH:')
-    print(str(TX_HASH))
-    print()
-    TX_DATA = HexBytes(TX['input'])
-    print('TRANSACTION DATA:')
-    print(w3.toHex(TX_DATA))
+    transaction_info = w3.eth.getTransaction(call_contract_function)
     return render_template(
         'registered.html',
         reg_ethaddress=w3.eth.accounts[int(request.form['ETHADDRESS'])],
         reg_serial=request.form['SERIALNUMBER'],
         reg_accountnumber=request.form['ETHADDRESS'],
-        reg_receipt=w3.eth.getTransactionReceipt(REGISTERED),
-        reg_txhash=TX_HASH,
-        reg_txdata=TX_DATA,
+        reg_receipt=w3.eth.getTransactionReceipt(call_contract_function),
+        reg_txhash=HexBytes.hex(transaction_info['hash']),
+        reg_txdata=HexBytes(transaction_info['input']),
         contractaddress=ASSETREGISTER.address
     )
 
