@@ -296,7 +296,7 @@ contract StorageContract {
 
 Compile the contract:
 ```
-compiled_sol = compile_source(contract_source_code) # Compiled source code
+COMPILED_SOL = compile_source(CONTRACT_SOURCE_CODE)
 ```
 
 [Back To Top](#table-of-contents)
@@ -335,24 +335,26 @@ compiled_sol = compile_source_file('storage.sol')
 #### Building the Contract Interface
 
 ```
-smartcontract_interface = compiled_sol['<stdin>:StorageContract']
-StorageContract = web3.eth.contract(abi=smartcontract_interface['abi'], bytecode=smartcontract_interface['bin'])
+SMARTCONTRACT_INTERFACE = COMPILED_SOL['<stdin>:StorageContract']
+StorageContract = WEB3.eth.contract(
+    abi=SMARTCONTRACT_INTERFACE['abi'],
+    bytecode=SMARTCONTRACT_INTERFACE['bin'])
 ```
 
 Setup the transaction to deploy the contract:
 
 ```
-web3.eth.defaultAccount = web3.eth.accounts[0] # From which account?  The first one.
-tx_hash = StorageContract.constructor().transact() # Transaction
-tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash) # Get the Transaction receipt
+WEB3.eth.defaultAccount = WEB3.eth.accounts[0]
+TX_HASH = StorageContract.constructor().transact()
+TX_RECEIPT = WEB3.eth.waitForTransactionReceipt(TX_HASH)
 ```
 
 Create the Contract Instance:
 
 ```
-assetregister = web3.eth.contract(
-    address=tx_receipt.contractAddress,
-    abi=smartcontract_interface['abi'],
+ASSETREGISTER = WEB3.eth.contract(
+    address=TX_RECEIPT.contractAddress,
+    abi=SMARTCONTRACT_INTERFACE['abi'],
 )
 ```
 
