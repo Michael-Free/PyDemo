@@ -541,15 +541,15 @@ Within the double-curly brackets in these templates, you can display vars, objec
 What can be seen below is calling the ```RegisterForm``` class in ```dapp.py```.  Here is 'Ethereum Address' text label from that class, along with the drop-down field itself.
 
 ```
-<td>{{ registerform.ethaddress.label }} :</td>
-<td>{{ registerform.ethaddress }}</td>
+<td>{{ registerform.ethereum_address.label }} :</td>
+<td>{{ registerform.ethereum_address }}</td>
 ```
 
-The same thing happens for bringing up the serial number form field. This is a text string provided to the smart contract through this form. 
+The same thing happens for bringing up the "Some String" form field. This is a text string provided to the smart contract through this form. 
 
 ```
-<td>{{ registerform.serialnumber.label }} :</td>
-<td>{{ registerform.serialnumber }}</td>
+<td>{{ registerform.some_string.label }} :</td>
+<td>{{ registerform.some_string }}</td>
 ```
 
 These are the two values that will be passed to the smart contract. The Ethereum Address and the Serial Number (passed as a text string).
@@ -563,12 +563,12 @@ to this particular template.
 
 * ```reg_ethaddress``` displays the ethereum address used to make the transaction to the smart contract address. 
 
-* ```reg_serial``` displays the serial number passed from the html form to the smart contract.
+* ```reg_serial``` displays the string passed from the html form to the smart contract.
 
 ```
 <br>REGISTERED</p>
 Ethereum Address: {{ reg_ethaddress }} <br>
-Serial Number: {{ reg_serial }} <br>
+Some String: {{ reg_serial }} <br>
 ```
 
 Within ```dapp.py```, not all variables are passed to this template. 
