@@ -405,8 +405,8 @@ The most important thing to notice from here is that ```deploycontract.py``` is 
 ##### Register Form
 ```
 class RegisterForm(FlaskForm):
-    ethaddress = SelectField('Ethereum Address', choices=[])
-    serialnumber = StringField('Serial Number', [InputRequired()])
+    ethereum_address = SelectField('Ethereum Address', choices=[])
+    some_string = StringField('Some String', [InputRequired()])
 ```
 
 [Back To Top](#table-of-contents)
@@ -423,7 +423,7 @@ class RegisterForm(FlaskForm):
 ```
 @app.route("/")
 def home():
-    return render_template('home.html', contractaddress=assetregister.address)
+    return render_template('home.html', contractaddress=ASSETREGISTER.address)
 ```
 
 [Back To Top](#table-of-contents)
@@ -435,12 +435,16 @@ def home():
 @app.route("/register", methods=['GET'])
 def register():
     form = RegisterForm()
-    form.ethaddress.choices = []
-    n = -1
+    form.ethereum_address.choices = []
+    minus_one = -1
     for chooseaccount in w3.personal.listAccounts:
-        n = n+1
-        form.ethaddress.choices += [(n, chooseaccount)]
-    return render_template('register.html', registerform=form, contractaddress=assetregister.address)
+        minus_one = minus_one+1
+        form.ethereum_address.choices += [(minus_one, chooseaccount)]
+    return render_template(
+        'register.html',
+        registerform=form,
+        contractaddress=ASSETREGISTER.address
+    )
 ```
 
 [Back To Top](#table-of-contents)
@@ -450,21 +454,20 @@ def register():
 
 ```
 def registered():
-    registered = assetregister.functions.setRegistration(
-        request.form['serialnumber'],
-        w3.eth.accounts[int(request.form['ethaddress'])]).transact() # create the transaction
-    tx =  w3.eth.getTransaction(registered)
-    tx_hash = HexBytes.hex(tx['hash'])
-    tx_data = HexBytes.hex(tx['input'])
+    call_contract_function = ASSETREGISTER.functions.setRegistration(
+        request.form['some_string'],
+        w3.eth.accounts[int(request.form['ethereum_address'])]).transact() # create the transaction
+    transaction_info = w3.eth.getTransaction(call_contract_function)
     return render_template(
         'registered.html',
-        reg_ethaddress=w3.eth.accounts[int(request.form['ethaddress'])],
-        reg_serial=request.form['serialnumber'],
-        reg_accountnumber=request.form['ethaddress'],
-        reg_receipt=w3.eth.getTransactionReceipt(registered),
-        reg_txhash= tx_hash,
-        reg_txdata= tx_data,
-        contractaddress=assetregister.address
+        # pass these variables to the html template
+        reg_ethaddress=w3.eth.accounts[int(request.form['ethereum_address'])],
+        reg_serial=request.form['some_string'],
+        reg_accountnumber=request.form['ethereum_address'],
+        reg_receipt=w3.eth.getTransactionReceipt(call_contract_function),
+        reg_txhash=HexBytes.hex(transaction_info['hash']),
+        reg_txdata=HexBytes(transaction_info['input']),
+        contractaddress=ASSETREGISTER.address
     )
 ```
 
