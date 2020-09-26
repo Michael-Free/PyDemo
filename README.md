@@ -379,10 +379,10 @@ export FLASK_DEBUG=0
 
 ```
 # Flask requirements
-from flask import Flask, render_template, jsonify, request, flash, redirect, url_for
+from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, SelectField, validators
+from wtforms import StringField, SelectField
 from wtforms.validators import InputRequired
 ```
 
@@ -390,13 +390,12 @@ from wtforms.validators import InputRequired
 # DAPP Requirements
 from hexbytes import HexBytes
 from web3.auto import w3
-from deploycontract import assetregister, StorageContract
+from deploycontract import ASSETREGISTER
 ```
 
-The most important thing to notice from here is that ```deploycontract.py``` is imported as a python library.  More specifically 2 functions are imported:
+The most important thing to notice from here is that ```deploycontract.py``` is imported as a python library.  More specifically this function is imported:
 
-* ```assetregister``` - 
-* ```StorageContract``` - 
+* ```ASSETREGISTER``` - 
 
 
 [Back To Top](#table-of-contents)
