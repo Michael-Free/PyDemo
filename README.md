@@ -552,7 +552,7 @@ The same thing happens for bringing up the "Some String" form field. This is a t
 <td>{{ registerform.some_string }}</td>
 ```
 
-These are the two values that will be passed to the smart contract. The Ethereum Address and the Serial Number (passed as a text string).
+These are the two values that will be passed to the smart contract. The Ethereum Address and the Inputted String (passed as a text string).
 
 [Back To Top](#table-of-contents)
 
