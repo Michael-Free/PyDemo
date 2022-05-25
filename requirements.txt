@@ -55,7 +55,7 @@ pycrypto==2.6.1
 pycryptodome==3.8.2
 pygobject==3.26.1
 pyinotify==0.9.6
-PyJWT==1.5.3
+PyJWT==2.4.0
 pyOpenSSL==17.5.0
 pyserial==3.4
 python-debian==0.1.32
