@@ -4,7 +4,7 @@ attrs==17.4.0
 Automat==0.6.0
 base58==1.0.3
 blinker==1.4
-certifi==2019.6.16
+certifi==2022.12.7
 chardet==3.0.4
 Click==7.0
 colorama==0.3.7
